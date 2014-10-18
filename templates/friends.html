@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{%block title%} Unity学院合作机构 {%endblock%}
+{%block content%}
+<div class="un_content">
+	<ul class="un_hzjg clearfix">
+	{%for friend in friends%}
+		<li><a href="{{friend.siteurl}}" target="_blank">
+			<div class="img"><img src="{{friend.logo}}"></div>
+			<div class="con">
+				{{friend.content}}
+			</div></a>
+		</li>
+	{%endfor%}
+	</ul>
+</div>
+{%endblock%}

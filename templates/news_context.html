@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{%block title%} Unity 学院新闻 — {{new.title}} {%endblock%}
+{%block nav%} <a href="/">首页</a> > <a href="/news">学院新闻</a> > <span>{{new.title}}</span> {%endblock%}
+{%block content%}
+<div class="un_content">
+	<div  class="newWb">
+		<div class="tit">
+			<h1>{{new.title}}</h1>
+			<p class="rq">{{new.publishtime|date:"Y/m/d"}}</p>
+		</div>
+		<div class="con">
+			{{new.content|escape|linebreaks}}
+		</div>
+	</div>
+</div>
+{%endblock%}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Unity学院</title>
+<link rel="stylesheet" type="text/css" href="/static/images/style.css">
+<script type="text/javascript" src="/static/scripts/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<script>
+</script>
+<div class="un_header">
+	<div class="un_logo"><h1><a href="/"><img src="/static/images/logo.png"><i class="disnoe">unity 官方学院</i></a></h1></div>
+	<div class="un_headNav">
+		<ul>
+			<li {% ifequal current_page "unity" %} class="hot" {% endifequal %}><a href="javascript:()" class="first">Unity学院</a><i></i></li>
+			<li {% ifequal current_page "news" %} class="hot" {% endifequal %}><a href="/news/" >学院新闻</a><i></i></li>
+			<li {% ifequal current_page "student" %} class="hot" {% endifequal %}><a href="/studentshow/">学员风采</a><i></i></li>
+			<li {% ifequal current_page "garden" %} class="hot" {% endifequal %}><a href="javascript:()">学习园地</a><i></i></li>
+			<li {% ifequal current_page "friends" %} class="hot" {% endifequal %}><a href="/friends/">合作机构</a><i></i></li>
+			<li><a href="javascript:()" class="last">我要报名</a><i></i></li>
+		</ul>
+	</div>
+	<div class="un_headIn">
+		<i class="l"></i>
+		<div class="con">
+			<a href="javascript:()" class="login">登录</a>
+			<i class="jg">|</i>
+			<a href="javascript:()" >注册</a>
+		</div>
+		
+		<i class="r"></i>
+	</div>
+</div>
+<div class="un_banerCon">
+	<div class="un_nTtile">
+		<h2>{{page_title}}</h2>
+	</div>
+	<div class="un_nTitleBan">
+		<a href="">首页</a> > <span>{{page_title}}</span>		
+	</div>
+</div>

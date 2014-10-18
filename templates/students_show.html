@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{%block title%} Unity学院学员风采 {%endblock%}
+{%block content%}
+<div class="un_content">
+	<div class="un_showTitle">
+		学员风采
+	</div>
+	<div class="un_perShow">
+		<ul class="clearfix" id="un_perShow">
+		{%for student in students%}
+			<li class="clearfix {%ifequal forloop.counter 1 %}hover{%endifequal%}">
+				<div class="img">
+					<img src="/static/images/person.jpg">
+					<p>{{student.fullname}}</p>
+				</div>
+				<div class="con {%ifnotequal forloop.counter 1 %}disnoe{%endifnotequal%}">
+					<div class="tit">{{student.title}}</div>
+					<p>“{{student.content}}”</p>
+				</div>
+			</li>
+		{%endfor%}
+		</ul>
+	</div>
+	<div class="un_showTitle">
+		优秀作品
+	</div>
+	<div class="un_workShow" >
+		<ul class="list clearfix " id="un_workShowList01">
+			{% for work in works %}
+			<li><a href=""><img src="/static/images/zuopin.jpg"></a><i></i></li>
+			{% endfor %}
+		</ul>
+		<div class="un_workShowInfo clearfix">
+			<div class="img">
+					<img src="/static/images/zuopin02.jpg">
+				</div>
+				<div class="con">
+					<div class="tit">
+						<h3>作品名称</h3>
+						<span class="mz">学员名字</span>
+						<span class="rq">2014-05-06</span>
+					</div>
+					<div class="info">
+					每类新闻一个独立区域，点击更多进入学院新闻相应区域的页面，按时间倒序排列。显示新闻的名称和最新的发布时间。<br/>
+
+点击名称出现新闻详细页面，与学院新闻内容保持一致...每类新闻一个独立区域，点击更多进入学院新闻相应区域的页面，按时间倒序排列。显示新闻的名称和最新的发布时间，点击名称出现新闻详细页面，与学院新闻内容保持一致...
+
+					</div>
+				</div>
+		</div>
+		<ul class="list clearfix " id="un_workShowList02">
+			{% for work in works %}
+			<li><a href=""><img src="/static/images/zuopin.jpg"></a><i></i></li>
+			{% endfor %}
+		</ul>
+	</div>
+
+</div>
+<script type="text/javascript">
+	$("#un_perShow li").hover(function  (argument) {
+		$(this).addClass("hover").siblings().removeClass("hover").children(".con").hide();;
+		$(this).children(".con").show();
+	});
+	$("#un_workShowList02 li,#un_workShowList01 li").hover(function  (argument) {
+		$(this).addClass("hover").siblings().removeClass("hover");
+
+		
+	});
+</script>
+{%endblock%}

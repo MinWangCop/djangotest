@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>{%block title%}{%endblock%}</title>
+	<link rel="stylesheet" type="text/css" href="/static/images/style.css" />
+	<script type="text/javascript" src="/static/scripts/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<script>
+</script>
+<div class="un_header">
+	<div class="un_logo"><h1><a href="/"><img src="/static/images/logo.png" /><i class="disnoe">unity 官方学院</i></a></h1></div>
+	<div class="un_headNav">
+		<ul>
+			<li {% ifequal current_page "unity" %} class="hot" {% endifequal %}><a href="javascript:()" class="first">Unity学院</a><i></i></li>
+			<li {% ifequal current_page "news" %} class="hot" {% endifequal %}><a href="/news/" >学院新闻</a><i></i></li>
+			<li {% ifequal current_page "student" %} class="hot" {% endifequal %}><a href="/studentshow/">学员风采</a><i></i></li>
+			<li {% ifequal current_page "garden" %} class="hot" {% endifequal %}><a href="javascript:()">学习园地</a><i></i></li>
+			<li {% ifequal current_page "friends" %} class="hot" {% endifequal %}><a href="/friends/">合作机构</a><i></i></li>
+			<li><a href="javascript:()" onclick="javascript:show_registe('')" class="last">我要报名</a><i></i></li>
+		</ul>
+	</div>
+	<div class="un_headIn">
+		<i class="l"></i>
+		<div class="con">
+			<a href="javascript:()" class="login">登录</a>
+			<i class="jg">|</i>
+			<a href="javascript:()" >注册</a>
+		</div>
+		
+		<i class="r"></i>
+	</div>
+</div>
+{%block navframe%}
+<div class="un_banerCon">
+	<div class="un_nTtile">
+		<h2>{{page_title}}</h2>
+	</div>
+	<div class="un_nTitleBan">
+		{% block nav %}<a href="/">首页</a> > <span>{{page_title}}</span>{% endblock %}
+	</div>
+</div>
+{%endblock%}
+{% block content %}{% endblock %}
+{% block footer%}
+<div class="un_footerCon un_footerConN">
+	<div class="un_footer">
+		<div class="menu"><p><a href="javascript:()">Unity全球官网</a> | <a href="javascript:()">Unity中文官网</a> | <a href="javascript:()">大中华服务区</a> | <a href="javascript:()">联系我们</a></p></div>
+		<div class="friends">合作机构<a href="javascript:()" target="_blank"><img src="/static/images/homepage_68.png"></a><a href="javascript:()" target="_blank"><img src="/static/images/homepage_68.png"></a><a href="" target="_blank"><img src="/static/images/homepage_68.png"></a><a href="javascript:()" target="_blank"><img src="/static/images/homepage_68.png"></a></div>
+		<div class="copyright">版权 ? 2014 Unity 官方学院  沪ICP备13002771号-2</div>
+		<div class="weibo"><a href="javascript:()">学院官方微博</a><br/><img src="/static/images/homepage_65.png"></div>
+	</div>
+</div>
+{% endblock %}
+</body>
+</html>

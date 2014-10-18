@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{%block title%} Unity学院新闻 {%endblock%}
+{%block content%}
+<div class="un_content">
+	<ul class="un_xwdt clearfix">
+		{%for new in news%}
+		<li>
+			<div class="newImg"><a href=""><img src="{{new.picture}}"></a></div>
+			<div class="newCon">
+				<div class="tit">
+					<h3>{{new.title}}</h3>
+					<p>{{new.publishtime|date:"Y/m/d"}}</p>
+				</div>
+				<div class="con">
+					<a href="/news/{{new.title}}">{{new.content|truncatewords:"5"}}...</a>
+				</div>
+			</div>
+		</li>
+		{%endfor%}
+	</ul>
+</div>
+{%endblock%}
