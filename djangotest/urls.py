@@ -6,6 +6,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'djangotest.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'portal.views.index'),
     url(r'^news/$','portal.views.news'),
     url(r'^friends/$','portal.views.friends'),
@@ -14,5 +15,4 @@ urlpatterns = patterns('',
     url(r'^register/$','portal.views.register'),
     url(r'^registerpost/$','portal.views.register_post'),
     url(r'^code/$','portal.views.validate_code'),
-    url(r'^admin/', include(admin.site.urls)),
-)
+)   

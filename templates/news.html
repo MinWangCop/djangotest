@@ -12,7 +12,7 @@
 					<p>{{new.publishtime|date:"Y/m/d"}}</p>
 				</div>
 				<div class="con">
-					<a href="/news/{{new.title}}">{{new.content|truncatewords:"5"}}...</a>
+					<a href="/news/{{new.title}}">{{new.content|striptags|truncatewords:"5"}}...</a>
 				</div>
 			</div>
 		</li>
