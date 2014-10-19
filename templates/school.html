@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{%block title%} Unity 学院 {%endblock%}
+{%block navframe%}
+<div class="un_banerCon un_banerCon02">
+	<div class="un_nTtile">
+		<h2>Unity学院</h2>
+	</div>
+	<div class="un_nTitleBan">
+		<a href="/">首页</a> > <span>Unity学院</span>		
+	</div>
+</div>
+{%endblock%}
+{%block content%}
+<div class="un_content">
+	<div class="un_showTitle">
+		课程介绍
+	</div>
+	<div class="un_kecheng">
+		<ul class="clearfix">
+			<li class="con01">
+				<dl>
+					<dt>Unity基础应用课程</dt>
+					<dd class="xq">学制：1.5个月</dd>
+					<dd class="time">时间：周一至周五9：00-16：30</dd>
+					<dd>学生认知Unity引擎的操作运用，并完成相关官方认证考试。使学生掌握unity引擎基本操作，学成后适合参与虚拟现实类技术岗位。</dd>
+					
+				</dl>
+				<img src="/static/images/info01.jpg">
+			</li>
+			<li class="con02">
+				<dl>
+					<dt>Unity综合能力课程</dt>
+					<dd class="xq">学制：4个月</dd>
+					<dd class="time">时间：周一至周五9：00-16：30</dd>
+					<dd>全面提高初学者对Unity引擎的掌握及实际项目工作开发中所涉及到的知识。强化开发项目及技术解决方案的实践经验。学员可以满足企业对高级研发人员对技能掌握的需要。</dd>
+					
+				</dl>
+				<img src="/static/images/info02.jpg">
+			</li>
+			<li class="con03">
+				<dl>
+					<dt>Unity3D综合能力课程业余班</dt>
+					<dd class="xq">学制：4个月</dd>
+					<dd class="time">时间：周一至周五9：00-16：30</dd>
+					<dd>对Unity基础有一定认识，专业课程强化开发项目及技术解决方案的实践经验。使学员在使用Unity引擎中拥有丰富的使用经验。</dd>
+					
+				</dl>
+				<img src="/static/images/info03.jpg">
+			</li>
+		</ul>
+	</div>
+	<div class="un_showTitle">
+		学院简介
+	</div>
+	<div class="un_schoolShow">
+		<img src="/static/images/school.jpg">
+		<div class="con">
+			<i class="bg"></i>
+			<div class="info">
+				
+				Unity官方学院坐落于上海工程技术大学，作为全球学习Unity的典范基地，秉着培育Unity精英人才成立开设。<br/><br/>
+
+Unity官方学院作为整个Unity教育行业的标杆，将为参加Unity官方学院系统课程的学员提供由Unity国内外专业讲师提供的系列培训，接受面向行业的专业化与认证培训，缩短投入企业后的就业适应期，提升企业聘用的高度意愿，同时，Unity将携业内知名的企业合作伙伴直接提供结训后的就职聘书。
+			</div>
+			
+		</div>
+	</div>
+
+
+
+	<div class="un_showTitle">
+		讲师风采
+	</div>
+	<div class="un_perShow un_teacherShow">
+		<div class="un_personArrow">
+			<a  class="left" id="arrowL"></a>
+			<a  class="right" id="arrowR"></a>
+		</div>
+		<div class="un_teacherShowCon">
+			<ul class="clearfix" id="un_perShow">
+					{%for teacher in teachers%}
+					<li class="clearfix">
+						<div class="img">
+							<img src="{{teacher.photo}}">
+							<p>{{teacher.fullname}}</p>
+						</div>
+						<div class="con disnoe">
+							<div class="tit">{{teacher.title}}</div>
+							<p>{{teacher.content}}</p>
+						</div>
+					</li>
+					{%endfor%}
+				</ul>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$("#un_perShow li").hover(function  (argument) {
+		$(this).addClass("hover").siblings().removeClass("hover").children(".con").hide();;
+		$(this).children(".con").show();
+	});
+	$("#un_workShowList02 li,#un_workShowList01 li").hover(function  (argument) {
+		$(this).addClass("hover").siblings().removeClass("hover");
+
+		
+	});
+
+</script>
+<script type="text/javascript">	
+$(document).ready(function() {
+	 var un_perNum=$("#un_perShow li").size();
+	 var un_perWidN=Math.ceil(un_perNum/5);
+	 var un_n=un_perWidN-1;
+	 var un_perJ=0;
+	 $("#un_perShow").width(un_perWidN*1039+"px");
+
+	 $("#arrowR").click(function  (argument) {
+	    
+	 	if(un_perJ==un_n){return false;}
+	     ++un_perJ;
+	 	$("#un_perShow").animate({"left":-(un_perJ*1039-526)+"px"},500);
+
+	 	
+	 	if(un_perJ==un_n){
+	 		un_perJ=un_n;
+	 		//$(this).addClass("rightLast");
+	 	}
+
+	 });
+
+	 $("#arrowL").click(function  (argument) {
+	 	if(un_perJ==0){return false;}
+	    --un_perJ;  
+	    $("#un_perShow").animate({"left":-un_perJ*1039+"px"},500);
+	 	if(un_perJ==0){
+	 		//$(this).addClass("leftLast");
+	 	}
+	 });
+});
+</script>
+{%endblock%}
