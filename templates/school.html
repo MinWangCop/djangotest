@@ -77,66 +77,60 @@ Unity官方学院作为整个Unity教育行业的标杆，将为参加Unity官�
 			<a  class="right" id="arrowR"></a>
 		</div>
 		<div class="un_teacherShowCon">
-			<ul class="clearfix" id="un_perShow">
-					{%for teacher in teachers%}
-					<li class="clearfix">
+			<div class="un_perShowW" id="un_perShowW">
+				{%for page_objects in teachers%}
+				<ul class="clearfix un_perShowUl">
+					{%for teacher in page_objects%}
+					<li class="clearfix {%if forloop.first%} hover {%endif%}">
 						<div class="img">
 							<img src="{{teacher.photo}}">
 							<p>{{teacher.fullname}}</p>
 						</div>
-						<div class="con disnoe">
+						<div class="con {%if not forloop.first%} disnoe {%endif%}">
 							<div class="tit">{{teacher.title}}</div>
 							<p>{{teacher.content}}</p>
 						</div>
 					</li>
 					{%endfor%}
 				</ul>
+				{%endfor%}
+			</div>
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
-	$("#un_perShow li").hover(function  (argument) {
+	$(".un_perShowUl>li").hover(function  (argument) {
 		$(this).addClass("hover").siblings().removeClass("hover").children(".con").hide();;
 		$(this).children(".con").show();
-	});
-	$("#un_workShowList02 li,#un_workShowList01 li").hover(function  (argument) {
-		$(this).addClass("hover").siblings().removeClass("hover");
+	},function  (argument) {});
 
-		
-	});
 
 </script>
 <script type="text/javascript">	
 $(document).ready(function() {
-	 var un_perNum=$("#un_perShow li").size();
-	 var un_perWidN=Math.ceil(un_perNum/5);
-	 var un_n=un_perWidN-1;
+	 var un_perNum=$("#un_perShowW ul").size();
+
+	 var un_n=un_perNum-1;
 	 var un_perJ=0;
-	 $("#un_perShow").width(un_perWidN*1039+"px");
+	 $("#un_perShowW").width(un_perNum*1039+"px");
 
 	 $("#arrowR").click(function  (argument) {
 	    
 	 	if(un_perJ==un_n){return false;}
 	     ++un_perJ;
-	 	$("#un_perShow").animate({"left":-(un_perJ*1039-526)+"px"},500);
-
-	 	
+	 	$("#un_perShowW").animate({"left":-un_perJ*1039+"px"},500);	
 	 	if(un_perJ==un_n){
 	 		un_perJ=un_n;
-	 		//$(this).addClass("rightLast");
 	 	}
-
 	 });
 
 	 $("#arrowL").click(function  (argument) {
 	 	if(un_perJ==0){return false;}
 	    --un_perJ;  
-	    $("#un_perShow").animate({"left":-un_perJ*1039+"px"},500);
-	 	if(un_perJ==0){
-	 		//$(this).addClass("leftLast");
-	 	}
+	    $("#un_perShowW").animate({"left":-un_perJ*1039+"px"},500);
 	 });
 });
+
 </script>
 {%endblock%}
