@@ -7,7 +7,7 @@ from django.shortcuts import render, render_to_response
 from django.template import Context,Template
 from django.http import HttpResponse 
 from django.views.decorators.csrf import csrf_exempt
-from portal.models import News, Friends,Student,Studentworks
+from portal.models import News, Friends,Student,Studentworks, Teacher
 from DjangoCaptcha import Captcha
 
 # Create your views here.
@@ -30,9 +30,13 @@ def news_context(request,news_title):
 
 def students_show(request):
     students = Student.objects.order_by('-studentid')[:5]
-    student_works = Studentworks.objects.order_by('publishtime')
+    student_works = Studentworks.objects.order_by('-publishtime')
     return render_include_to_response('students_show.html','student','学员风采',
                                       {'students':students,'works':student_works})
+
+def school(request):
+    teachers = Teacher.objects.order_by('-teacherid')
+    return render_include_to_response('school.html', 'unity', 'Unity 学院',{'teachers':teachers,})
 
 def validate_code(request):
     ca =  Captcha(request)

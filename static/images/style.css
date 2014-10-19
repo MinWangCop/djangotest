@@ -21,7 +21,7 @@ caption,th,td { vertical-align:top; text-align:left; font-weight:normal; }
 ul,ol,li{ list-style:none; }
 body{ background-color: #ffffff;}
 /**/
-.un_header{width: 1100px; margin:0 auto; position: relative; z-index: 1000;}
+.un_header{width: 1100px; margin:0 auto; position: relative; z-index:998;}
 .un_logo{}
 .un_headNav{ height: 58px; margin-top:-34px; }
 .un_headNav ul{padding-left: 152px;}
@@ -146,8 +146,9 @@ body{ background-color: #ffffff;}
 .un_workShowInfo .con .info{ margin-top: 10px; line-height: 18px; height: 216px; overflow:hidden;}
 
 /*window*/
-.un_mc{position: absolute; top:0;left: 0; width: 100%; height: 100%; min-height: 700px; background-color: #000; opacity:0.8;filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity:0.8;   }
-.un_bmCon{ width: 569px; border: 9px solid #23abe9;  background: #fff url("jiao.png") no-repeat top right; position: absolute;top:30px; left:50%; margin-left: -284px;}
+.un_mc{ display: none; position: absolute; top:0;left: 0; z-index: 999; width: 100%; height: 100%; min-height: 700px; background-color: #000; opacity:0.8;filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity:0.8;   }
+.un_mcCon{display: none; width: 569px; position: absolute;top:30px; left:50%;  z-index: 1000; }
+.un_bmCon{ width: 569px; border: 9px solid #23abe9;  background: #fff url("jiao.png") no-repeat top right; }
 .un_bm{padding:42px 96px; background: url("bmbg.png") no-repeat bottom right;}
 .un_bm .tit{ font-size: 18px; font-weight: bold; height: 50px;}
 .fromGroup .item{min-height: 30px; padding-bottom: 10px;}
@@ -162,4 +163,31 @@ body{ background-color: #ffffff;}
 .fromGroup .item02{min-height: 58px;}
 .fromGroup .zx{text-align: center; padding-top:20px;}
 .wybm{ display:inline-block; width: 130px; height: 42px; border:0px; background: url("bm.png") no-repeat top left;}
-.bmClose{ position: absolute; top:6px; right: 10px; color: #fff; cursor: pointer; font-weight:bold;}
+.mcClose{ position: absolute; top:6px; right: 10px; color: #fff; cursor: pointer; font-weight:bold;}
+
+/**/
+.un_banerCon02{ background-image: url(baner02.jpg);}
+.un_kecheng ul li{float: left; margin-right: 1px; width: 366px; background: url("san.png") no-repeat top right;}
+.un_kecheng ul li.con01{ background-color: #23aae9;}
+.un_kecheng ul li.con02{ background-color: #1386cf;}
+.un_kecheng ul li.con03{ background-color: #1a4979; margin-right: 0px;}
+.un_kecheng ul li dl{ padding:22px 24px; color: #fff; height: 200px; overflow: hidden; line-height: 21px; font-size: 14px;}
+.un_kecheng ul li dt{ font-weight: bold; font-size: 20px;margin-bottom: 25px;}
+.un_kecheng ul li dd.xq{ padding-bottom: 6px; background: url("shu.png") no-repeat left 3px; padding-left: 24px;}
+.un_kecheng ul li dd.time{ padding-bottom: 15px;background: url("zhong.png") no-repeat  left 3px; padding-left: 24px;}
+.un_schoolShow .con{  position: relative;top:-137px;  height: 137px;margin-bottom: -137px;}
+.un_schoolShow .con .bg{ width:100%; height: 100%;  display: block; background-color: #23aae9;opacity:0.9;filter:alpha(opacity=90);-moz-opacity:0.9;-khtml-opacity:0.9;   }
+.un_schoolShow .con .info{ position: relative;top:-137px; padding: 23px 21px; color: #fff; font-size: 14px; line-height: 18px; }
+
+
+
+.un_personArrow{ width: 1100px; padding-top: 57px; height: 30px; }
+.un_personArrow a{ cursor: pointer; float: left; display: block; width: 30px; height: 30px;  background: url("homepage_27.png");}
+.un_personArrow a.right{ float: right; background-image: url("homepage_29.png");}
+
+.un_teacherShowCon{ width: 1039px;  margin-left: 32px; overflow: hidden; height: 195px; margin-top: -87px; position: relative;}
+.un_teacherShow ul{ height: 195px;  position: absolute;top:0px;left: 0px;}
+.un_teacherShow ul li{ padding-left:4px; padding-right: 4px; }
+.un_teacherShow ul li.hover{padding:12px;}
+.un_teacherShow ul li .con{height: 175px;}
+.un_teacherShow ul li .con p{height: 105px;}

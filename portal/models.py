@@ -105,6 +105,10 @@ class Studentworks(models.Model):
 class Teacher(models.Model):
     teacherid = models.IntegerField(db_column='TeacherId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey(School, db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
+    photo = models.CharField(db_column='photo', max_length=1024, blank=True)  # Field name made lowercase.
+    content = models.CharField(db_column='Content', max_length=2048, blank=True)  # Field name made lowercase.
+    title = models.CharField(db_column='title', max_length=1024, blank=True)  # Field name made lowercase.
+    fullname = models.CharField(db_column='fullname', max_length=1024, blank=True)  # Field name made lowercase.
 
     class Meta:
         managed = False

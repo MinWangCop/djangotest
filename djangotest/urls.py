@@ -14,5 +14,6 @@ urlpatterns = patterns('',
     url(r'^studentshow/$','portal.views.students_show'),
     url(r'^register/$','portal.views.register'),
     url(r'^registerpost/$','portal.views.register_post'),
+    url(r'^school/$', 'portal.views.school'),
     url(r'^code/$','portal.views.validate_code'),
 )   
