@@ -186,7 +186,8 @@ body{ background-color: #ffffff;}
 .un_personArrow a.right{ float: right; background-image: url("homepage_29.png");}
 
 .un_teacherShowCon{ width: 1039px;  margin-left: 32px; overflow: hidden; height: 195px; margin-top: -87px; position: relative;}
-.un_teacherShow ul{ height: 195px;  position: absolute;top:0px;left: 0px;}
+.un_perShowW{position: absolute;top:0px;left: 0px;}
+.un_teacherShow ul{ height: 195px; float: left; width:1039px;  }
 .un_teacherShow ul li{ padding-left:4px; padding-right: 4px; }
 .un_teacherShow ul li.hover{padding:12px;}
 .un_teacherShow ul li .con{height: 175px;}

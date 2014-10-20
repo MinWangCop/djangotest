@@ -2,6 +2,7 @@
 
 import random
 import string
+import urllib
 import simplejson as json
 from django.shortcuts import render, render_to_response
 from django.template import Context,Template
@@ -9,6 +10,8 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from portal.models import News, Friends,Student,Studentworks, Teacher
 from DjangoCaptcha import Captcha
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 def index(request):
@@ -36,14 +39,19 @@ def students_show(request):
 
 def school(request):
     teachers = Teacher.objects.order_by('-teacherid')
-    return render_include_to_response('school.html', 'unity', 'Unity 学院',{'teachers':teachers,})
+    page_list = Paginator(teachers, 5)
+    page_objects_list = []
+    for page_index in page_list.page_range:
+        page = page_list.page(page_index).object_list
+        page_objects_list.append(page)
+    return render_include_to_response('school.html', 'unity', 'Unity 学院',{'teachers':page_objects_list,})
 
 def validate_code(request):
     ca =  Captcha(request)
     ca.img_height=28
     ca.img_width=101
     #ca.font_size = 12
-    word = random.sample('zyxwvutsrqponmlkjihgfedcbaABCDEFGHIJKLMNOPQRSTUVWXYZ',4)
+    word = random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ',4)
     ca.words = [word]
     ca.type = 'word'
     return ca.display()
@@ -51,9 +59,8 @@ def validate_code(request):
 @csrf_exempt
 def register_post(request):
     _code = request.POST["validatecode"]
-    #print(_code)
     ca = Captcha(request)
-    if ca.check(_code):
+    if ca.check(_code.upper()):
         #registe = json.loads(request.body)
         return HttpResponse("code")
     else:

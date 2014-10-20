@@ -7,51 +7,27 @@
 	<script type="text/javascript" src="/static/scripts/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-
+<style type="text/css">
+body{background-color: transparent; }
+</style>
 <!--哪里需要把下面这段copy到哪个页面的body的最下面就行了-->
 <script>
-window.onload=function  (argument) {
-	var t=document.body.clientHeight;
-	document.getElementById('un_mc').style.height=t+"px";
-	document.getElementById('bmClose').onclick=function  (argument) {
-		document.getElementById('un_mc').style.display="none";
-		document.getElementById('un_bmCon').style.display="none";
+	function pushregiste(){
+		var jsondata = $("#registe").serialize();
+		//alert(jsondata);
+		$.post("/registerpost/", jsondata, 
+				function(data) {
+					alert(data);
+					window.parent.$("#un_mc").fadeOut("slow");
+					window.parent.$("#un_mcCon").fadeOut("slow");
+				}, "json");
 	}
-}
 
-function pushregiste(){
-	var jsondata = $("#registe").serializeArray();
-	alert(jsondata);
-	$.post("/registerpost/", jsondata, 
-			function(data) {
-				alert(data);
-				//switch(data){
-				//	case "codeerrror":
-				//		alert("验证码输入错误");
-				//		break;
-				//}
-			}, "json");
-}
-
-function refresh_code(){
-	var ran = Math.random()*100000;
-	document.getElementById('img_code').src='/code?ran='+Math.random()*100000;
-}
-</script><!-- 	$.ajax({
-			cache: true,
-			type: "POST",
-			datatype:"json",
-			url:"/registerpost/",
-			data:jsondata,
-			async: false,
-			error: function(request) {
-				alert("Connection error");
-			},
-			success: function(data) {
-				alert(data);
-			}
-		}); -->
-<div class="un_mc" id="un_mc"></div>
+	function refresh_code(){
+		var ran = Math.random()*100000;
+		document.getElementById('img_code').src='/code?ran='+Math.random()*100000;
+	}
+</script>
 <div class="un_bmCon" id="un_bmCon">
 	<form id="registe" name="registe">
 		<div class="un_bm">
@@ -103,7 +79,7 @@ function refresh_code(){
 				</div>
 				<div class="item">
 					<span>验证码 *</span>
-					<div class="in in02"><input type="text" name="validatecode" id="validatecode"></div>
+					<div class="in in02"><input type="text" name="validatecode" id="validatecode" maxlength="4" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" /></div>
 					<div class="yzm fl"><img id="img_code" src="/code"></div>
 					<a class="th" href="javascript:void()" onclick="javascript:refresh_code();">看不清，换一张</a>
 				</div>
@@ -111,9 +87,17 @@ function refresh_code(){
 					<a href="javascript:void()" onclick="javascript:pushregiste();" class="wybm"><i class="disnoe">我要报名</i></a>
 				</div>
 			</div>
-			<div class="bmClose" id="bmClose">X</div>
 		</div>
 	</form>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#wybm").click(function  (argument) {
+		window.parent.$("#un_mc").fadeOut("slow");
+		window.parent.$("#un_mcCon").fadeOut("slow");
+	});
+	})
+</script>
 </body>
 </html>
