@@ -21,7 +21,7 @@ caption,th,td { vertical-align:top; text-align:left; font-weight:normal; }
 ul,ol,li{ list-style:none; }
 body{ background-color: #ffffff;}
 /**/
-.un_header{width: 1100px; margin:0 auto; position: relative; z-index: 1000;}
+.un_header{width: 1100px; margin:0 auto; position: relative; z-index:998;}
 .un_logo{}
 .un_headNav{ height: 58px; margin-top:-34px; }
 .un_headNav ul{padding-left: 152px;}
@@ -46,12 +46,10 @@ body{ background-color: #ffffff;}
 .un_headIn .con a.login{ padding-left: 38px; background: url(per.png) no-repeat 5px center;}
 
 /**/
-.un_hotImageCon{ margin: 0 auto;position: relative; z-index: 10; top:-106px; height: 581px; }
-.un_hotImage{width: 100%; max-width: 1920px;height: 581px; position: relative; overflow: hidden; }
-.un_hotImageW{ height: 581px;width: 200%; position: absolute; top:0; left:-50%;  }
-.un_hotImageN{ width: 1920px;height: 581px; margin: 0 auto; overflow:hidden;position: relative;}
-.un_hotImage ul{height: 581px; width: 7680px; position: absolute;top:0px;left:0px;}
-.un_hotImage ul li{ float: left; width: 1920px;height: 581px;}
+.un_hotImageCon{ margin: 0 auto;position: relative; z-index: 10; top:-106px; height: 581px;  width: 1200px; }
+.un_hotImage{width: 1200px; height: 581px; position: relative; overflow: hidden; }
+.un_hotImage ul{height: 581px; width: 4800px; position: absolute;top:0px;left:0px;}
+.un_hotImage ul li{ float: left; width: 1200px;height: 581px;}
 
 .un_hotNum{ margin-top: -122px; text-align: center;position: relative; z-index:11;}
 .un_hotNum a{cursor: pointer;  display: inline-block; margin: 0px 7px; height: 9px; width: 9px; background: url("qiu.png");}
@@ -61,15 +59,20 @@ body{ background-color: #ffffff;}
 .un_hotArrow a{ cursor: pointer; float: left; display: block; width: 30px; height: 30px;  background: url("homepage_27.png");}
 .un_hotArrow a.right{ float: right; background-image: url("homepage_29.png");}
 /**/
-.un_newsCon{ height: 98px; background: url("news.png") repeat-x top left;  margin:0 auto; margin-top: -204px; position: relative;z-index: 12;}
-.un_news{ width: 1100px; margin: 0 auto; color: #fff; height: 24px; padding-top: 28px;}
+.un_newsCon{ height: 98px; background: url("news.png") repeat-x top left;  margin:0 auto; margin-top: -204px; position: relative;z-index: 12;  width: 1200px;}
+.un_news{ width: 1100px; margin: 0 auto; color: #fff; height: 24px; padding-top: 28px;   }
 .un_news a{color: #fff;}
 .un_news a:hover{color: #fff;}
 .un_news .title{ font-size: 14px; font-weight: normal; float: left; padding-right: 22px;}
 .un_news .jt,.un_news .jg{float: left;}
-.un_news .jt a{  display: inline-block; margin-left: 12px; width: 8px; height: 24px; background: url(homepage_45.png) left 5px no-repeat;}
-.un_news .jt a.right{background-image: url("homepage_47.png");}
-.un_news ul{ display: inline-block; height: 24px; width: 960px; overflow: hidden;}
+.un_news .jt a{ cursor: pointer;  display: inline-block; margin-left: 12px; width: 8px; height: 24px; background: url(homepage_45.png) left 5px no-repeat;}
+.un_news .jt a.right{background-image: url("homepage_46.png");}
+.un_news .jt a.leftLast{background-image: url("homepage_48.png");}
+.un_news .jt a.rightLast{background-image: url("homepage_47.png");}
+/*change*/
+.newsShowCon{width: 960px; height: 24px; overflow: hidden; position: relative;  }
+.un_news ul{ display: inline-block; height: 24px; position: absolute; top:0px; left: 0px;}
+/*change over*/
 .un_news ul li{float: left; width: 480px;}
 .un_news ul li span{ padding-left: 32px; display:inline-block; line-height: 24px; padding-right: 28px;}
 .un_news ul li a{display: inline-block;line-height: 24px;}
@@ -89,7 +92,7 @@ body{ background-color: #ffffff;}
 .un_footer .weibo{ position: absolute; left: 0px;top:-15px; line-height: 36px;}
 
 /**/
-.un_banerCon{ margin: 0 auto;position: relative; z-index: 10; top:-106px; background:#f0f0f0  url("baner.jpg") no-repeat top center;}
+.un_banerCon{ margin: 0 auto;position: relative; z-index: 10; top:-106px; background:#f0f0f0  url("baner.jpg") no-repeat top center; width: 1200px;}
 .un_nTtile{  height: 349px; width: 1100px; margin: 0 auto;}
 .un_nTtile h2{ font-size: 20px; color: #fff; padding-top: 308px;}
 .un_nTitleBan{height: 40px; width: 1100px; margin: 0 auto; line-height: 40px; font-weight: bold; }
@@ -143,8 +146,9 @@ body{ background-color: #ffffff;}
 .un_workShowInfo .con .info{ margin-top: 10px; line-height: 18px; height: 216px; overflow:hidden;}
 
 /*window*/
-.un_mc{position: absolute; top:0;left: 0; width: 100%; height: 100%; min-height: 700px; background-color: #000; opacity:0.8;filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity:0.8;   }
-.un_bmCon{ width: 569px; border: 9px solid #23abe9;  background: #fff url("jiao.png") no-repeat top right; position: absolute;top:30px; left:50%; margin-left: -284px;}
+.un_mc{ display: none; position: absolute; top:0;left: 0; z-index: 999; width: 100%; height: 100%; min-height: 700px; background-color: #000; opacity:0.8;filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity:0.8;   }
+.un_mcCon{display: none; width: 569px; position: absolute;top:30px; left:50%;  z-index: 1000; }
+.un_bmCon{ width: 569px; border: 9px solid #23abe9;  background: #fff url("jiao.png") no-repeat top right; }
 .un_bm{padding:42px 96px; background: url("bmbg.png") no-repeat bottom right;}
 .un_bm .tit{ font-size: 18px; font-weight: bold; height: 50px;}
 .fromGroup .item{min-height: 30px; padding-bottom: 10px;}
@@ -159,4 +163,32 @@ body{ background-color: #ffffff;}
 .fromGroup .item02{min-height: 58px;}
 .fromGroup .zx{text-align: center; padding-top:20px;}
 .wybm{ display:inline-block; width: 130px; height: 42px; border:0px; background: url("bm.png") no-repeat top left;}
-.bmClose{ position: absolute; top:6px; right: 10px; color: #fff; cursor: pointer; font-weight:bold;}
+.mcClose{ position: absolute; top:6px; right: 10px; color: #fff; cursor: pointer; font-weight:bold;}
+
+/**/
+.un_banerCon02{ background-image: url(baner02.jpg);}
+.un_kecheng ul li{float: left; margin-right: 1px; width: 366px; background: url("san.png") no-repeat top right;}
+.un_kecheng ul li.con01{ background-color: #23aae9;}
+.un_kecheng ul li.con02{ background-color: #1386cf;}
+.un_kecheng ul li.con03{ background-color: #1a4979; margin-right: 0px;}
+.un_kecheng ul li dl{ padding:22px 24px; color: #fff; height: 200px; overflow: hidden; line-height: 21px; font-size: 14px;}
+.un_kecheng ul li dt{ font-weight: bold; font-size: 20px;margin-bottom: 25px;}
+.un_kecheng ul li dd.xq{ padding-bottom: 6px; background: url("shu.png") no-repeat left 3px; padding-left: 24px;}
+.un_kecheng ul li dd.time{ padding-bottom: 15px;background: url("zhong.png") no-repeat  left 3px; padding-left: 24px;}
+.un_schoolShow .con{  position: relative;top:-137px;  height: 137px;margin-bottom: -137px;}
+.un_schoolShow .con .bg{ width:100%; height: 100%;  display: block; background-color: #23aae9;opacity:0.9;filter:alpha(opacity=90);-moz-opacity:0.9;-khtml-opacity:0.9;   }
+.un_schoolShow .con .info{ position: relative;top:-137px; padding: 23px 21px; color: #fff; font-size: 14px; line-height: 18px; }
+
+
+
+.un_personArrow{ width: 1100px; padding-top: 57px; height: 30px; }
+.un_personArrow a{ cursor: pointer; float: left; display: block; width: 30px; height: 30px;  background: url("homepage_27.png");}
+.un_personArrow a.right{ float: right; background-image: url("homepage_29.png");}
+
+.un_teacherShowCon{ width: 1039px;  margin-left: 32px; overflow: hidden; height: 195px; margin-top: -87px; position: relative;}
+.un_perShowW{position: absolute;top:0px;left: 0px;}
+.un_teacherShow ul{ height: 195px; float: left; width:1039px;  }
+.un_teacherShow ul li{ padding-left:4px; padding-right: 4px; }
+.un_teacherShow ul li.hover{padding:12px;}
+.un_teacherShow ul li .con{height: 175px;}
+.un_teacherShow ul li .con p{height: 105px;}
