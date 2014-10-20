@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2014-10-18 20:36:17
+Date: 2014-10-20 10:07:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -63,7 +63,7 @@ CREATE TABLE `auth_permission` (
   UNIQUE KEY `content_type_id` (`content_type_id`,`codename`),
   KEY `auth_permission_417f1b1c` (`content_type_id`),
   CONSTRAINT `auth_permissi_content_type_id_51277a81_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of auth_permission
@@ -86,9 +86,6 @@ INSERT INTO `auth_permission` VALUES ('15', 'Can delete content type', '5', 'del
 INSERT INTO `auth_permission` VALUES ('16', 'Can add session', '6', 'add_session');
 INSERT INTO `auth_permission` VALUES ('17', 'Can change session', '6', 'change_session');
 INSERT INTO `auth_permission` VALUES ('18', 'Can delete session', '6', 'delete_session');
-INSERT INTO `auth_permission` VALUES ('19', 'Can add captcha store', '7', 'add_captchastore');
-INSERT INTO `auth_permission` VALUES ('20', 'Can change captcha store', '7', 'change_captchastore');
-INSERT INTO `auth_permission` VALUES ('21', 'Can delete captcha store', '7', 'delete_captchastore');
 
 -- ----------------------------
 -- Table structure for `auth_user`
@@ -113,7 +110,7 @@ CREATE TABLE `auth_user` (
 -- ----------------------------
 -- Records of auth_user
 -- ----------------------------
-INSERT INTO `auth_user` VALUES ('1', 'pbkdf2_sha256$12000$xQ8aZ0ZxRFu2$AQ3WIHAlvdEVshL0M+FVWfs1NiuHO5xMFloou6la06A=', '2014-10-16 08:21:16', '1', 'ming', '', '', '', '1', '1', '2014-10-16 08:21:16');
+INSERT INTO `auth_user` VALUES ('1', 'pbkdf2_sha256$12000$J2aKyuwuvEgw$jMyNWDLGl7Y6ET0RSmR0sFiNfDyZvKJ+ZD4KQDWMW4E=', '2014-10-19 00:57:58', '1', 'ming', '', '', '', '1', '1', '2014-10-19 00:56:59');
 
 -- ----------------------------
 -- Table structure for `auth_user_groups`
@@ -206,7 +203,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_3ec8c61c_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of django_content_type
@@ -217,7 +214,6 @@ INSERT INTO `django_content_type` VALUES ('3', 'group', 'auth', 'group');
 INSERT INTO `django_content_type` VALUES ('4', 'user', 'auth', 'user');
 INSERT INTO `django_content_type` VALUES ('5', 'content type', 'contenttypes', 'contenttype');
 INSERT INTO `django_content_type` VALUES ('6', 'session', 'sessions', 'session');
-INSERT INTO `django_content_type` VALUES ('7', 'captcha store', 'captcha', 'captchastore');
 
 -- ----------------------------
 -- Table structure for `django_migrations`
@@ -234,10 +230,10 @@ CREATE TABLE `django_migrations` (
 -- ----------------------------
 -- Records of django_migrations
 -- ----------------------------
-INSERT INTO `django_migrations` VALUES ('1', 'contenttypes', '0001_initial', '2014-10-16 08:21:03');
-INSERT INTO `django_migrations` VALUES ('2', 'auth', '0001_initial', '2014-10-16 08:21:04');
-INSERT INTO `django_migrations` VALUES ('3', 'admin', '0001_initial', '2014-10-16 08:21:04');
-INSERT INTO `django_migrations` VALUES ('4', 'sessions', '0001_initial', '2014-10-16 08:21:04');
+INSERT INTO `django_migrations` VALUES ('1', 'contenttypes', '0001_initial', '2014-10-19 00:56:45');
+INSERT INTO `django_migrations` VALUES ('2', 'auth', '0001_initial', '2014-10-19 00:56:46');
+INSERT INTO `django_migrations` VALUES ('3', 'admin', '0001_initial', '2014-10-19 00:56:46');
+INSERT INTO `django_migrations` VALUES ('4', 'sessions', '0001_initial', '2014-10-19 00:56:46');
 
 -- ----------------------------
 -- Table structure for `django_session`
@@ -254,7 +250,8 @@ CREATE TABLE `django_session` (
 -- ----------------------------
 -- Records of django_session
 -- ----------------------------
-INSERT INTO `django_session` VALUES ('t9086z6xe7m573hb2y1o020uztu2tlaw', 'ZGEzZDBkMmU3NzRiMjc5ZDZhZjJlMmU1ZDA1ODM1NjAzNTU4NDk5MTp7Il9kamFuZ29fY2FwdGNoYV9rZXkiOiIifQ==', '2014-11-01 11:13:17');
+INSERT INTO `django_session` VALUES ('0iidyjcdnpll88imp77i60hlfrqhn0db', 'NmRiYjhiZTY1ZjQ0ZjM4ZDlmZDIwYjBlNWI0ZjNiMzI5ZDMzMTc5ODp7Il9kamFuZ29fY2FwdGNoYV9rZXkiOiJbJ0gnLCAnWicsICdSJywgJ0wnXSJ9', '2014-11-02 13:42:50');
+INSERT INTO `django_session` VALUES ('w8ajtybyavqpfme7l8pmo8p57fuow82c', 'YmY4ZTIwZjBiZTFiZWFmZjcxNzQ2NDkzNGJiNTgxNGUxZjM0MDM1MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjFkMDA4MWFlMjhjOTU4YWUzNTIxZGIzNzdlNzk0YjAwYzhkMjRiYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjEsIl9kamFuZ29fY2FwdGNoYV9rZXkiOiIifQ==', '2014-11-02 13:48:30');
 
 -- ----------------------------
 -- Table structure for `Friends`
@@ -399,7 +396,7 @@ CREATE TABLE `StudentWorks` (
   KEY `FK_Reference_9` (`StudentId`),
   CONSTRAINT `FK_Reference_7` FOREIGN KEY (`SchoolId`) REFERENCES `School` (`SchoolId`),
   CONSTRAINT `FK_Reference_9` FOREIGN KEY (`StudentId`) REFERENCES `Student` (`StudentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of StudentWorks
@@ -416,11 +413,31 @@ DROP TABLE IF EXISTS `Teacher`;
 CREATE TABLE `Teacher` (
   `TeacherId` int(11) NOT NULL AUTO_INCREMENT COMMENT '教师Id',
   `SchoolId` int(11) DEFAULT NULL COMMENT '学校Id',
+  `photo` varchar(1024) DEFAULT NULL,
+  `fullname` varchar(1024) DEFAULT NULL,
+  `title` varchar(1024) DEFAULT NULL,
+  `content` varchar(2048) DEFAULT NULL,
   PRIMARY KEY (`TeacherId`),
   KEY `FK_Reference_8` (`SchoolId`),
   CONSTRAINT `FK_Reference_8` FOREIGN KEY (`SchoolId`) REFERENCES `School` (`SchoolId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of Teacher
 -- ----------------------------
+INSERT INTO `Teacher` VALUES ('1', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('2', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('3', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('4', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('5', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('6', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('7', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('8', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('12', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('13', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('14', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('15', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('16', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('17', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('18', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
+INSERT INTO `Teacher` VALUES ('19', null, '/static/images/teacher.jpg', '袁蔚 Yoyo Yuan', '世界会向那些有目标和远见的人让路', '朱培君先生在游戏领域工作多年，在中国率先利用Unity引擎开发手机游戏、虚拟应用。对游戏程序开发方面有着浓厚的功底，曾负责及参与多款游戏和大型军事模拟演练项目的程序开发工作。近年来一直从事着Unity引擎主讲工作，参与或主持课件设计及教材编写工作，在Unity教学培训方面有着丰富的经验。现担任Unity中国区教育培训师，并参与设计教育学习产品和工程的开发工作，首批持有Unity官方培训师资格认证证书（Unity Certified Instructor）。');
