@@ -1,17 +1,12 @@
 # -*- coding:UTF-8 -*-
 
-import random
-import string
-import urllib
-import simplejson as json
-from django.shortcuts import render, render_to_response
-from django.template import Context,Template
-from django.http import HttpResponse 
+from django.shortcuts import render_to_response
+from django.template import Context
 from django.views.decorators.csrf import csrf_exempt
 from portal.models import News, Friends,Student,Studentworks, Teacher
-from DjangoCaptcha import Captcha
 from django.core.paginator import Paginator
-
+from django.http import HttpResponse
+from validatecode import render_validate_code,check
 
 # Create your views here.
 def index(request):
@@ -47,21 +42,12 @@ def school(request):
     return render_include_to_response('school.html', 'unity', 'Unity 学院',{'teachers':page_objects_list,})
 
 def validate_code(request):
-    ca =  Captcha(request)
-    ca.img_height=28
-    ca.img_width=101
-    #ca.font_size = 12
-    word = random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ',4)
-    ca.words = [word]
-    ca.type = 'word'
-    return ca.display()
+    return render_validate_code(request)
 
 @csrf_exempt
 def register_post(request):
     _code = request.POST["validatecode"]
-    ca = Captcha(request)
-    if ca.check(_code.upper()):
-        #registe = json.loads(request.body)
+    if check(_code, request):
         return HttpResponse("code")
     else:
         return HttpResponse("codeerror")
