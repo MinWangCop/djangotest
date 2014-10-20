@@ -17,6 +17,7 @@ def get_font_size(img_height,img_width,code):
         """  将图片高度的80%作为字体大小
 
         """
+        return 24;
         s1 = int(img_height * 0.8)
         s2 = int(img_width/len(code))
         return int(min((s1,s2)) + max((s1,s2))*0.05)
