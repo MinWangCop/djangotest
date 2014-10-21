@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
 	<title>{%block title%}{%endblock%}</title>
 	<link rel="stylesheet" type="text/css" href="/static/images/style.css" />
 	<script type="text/javascript" src="/static/scripts/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-<script>
+<script type="text/javascript">
+window.onload=function  (argument) {
+	var t=document.body.clientHeight;
+	document.getElementById('un_mc').style.height=t+"px";
+	var mcConW=document.getElementById('un_mcIframe').width;
+	$("#un_mcCon").css("margin-left",-mcConW/2+"px");
+
+    $("#mcClose").click(function  (argument) {
+		$("#un_mc").fadeOut("slow");
+		$("#un_mcCon").fadeOut("slow");
+	});
+	$("#shiyan").click(function  (argument) {
+		$("#un_mc").fadeIn("slow");
+		$("#un_mcCon").fadeIn("slow");
+	});
+	
+}
 </script>
 <div class="un_header">
-	<div class="un_logo"><h1><a href="/"><img src="/static/images/logo.png" /><i class="disnoe">unity 官方学院</i></a></h1></div>
+	<div class="un_logo"><h1><a href="/"><img src="/static/images/logo.png"><i class="disnoe">unity 官方学院</i></a></h1></div>
 	<div class="un_headNav">
 		<ul>
 			<li {% ifequal current_page "unity" %} class="hot" {% endifequal %}><a href="/school/" class="first">Unity学院</a><i></i></li>
@@ -18,7 +34,7 @@
 			<li {% ifequal current_page "student" %} class="hot" {% endifequal %}><a href="/studentshow/">学员风采</a><i></i></li>
 			<li {% ifequal current_page "garden" %} class="hot" {% endifequal %}><a href="javascript:()">学习园地</a><i></i></li>
 			<li {% ifequal current_page "friends" %} class="hot" {% endifequal %}><a href="/friends/">合作机构</a><i></i></li>
-			<li><a href="javascript:()" class="last" id="shiyan" name="shiyan">我要报名</a><i></i></li>
+			<li><a href="javascript:;" class="last" id="shiyan" name="shiyan">我要报名</a><i></i></li>
 		</ul>
 	</div>
 	<div class="un_headIn">
@@ -58,23 +74,6 @@
 		<div class="mcClose" id="mcClose">X</div>
 	</div>
 </div>
-<script type="text/javascript">
-window.onload=function  (argument) {
-	var t=document.body.clientHeight;
-	document.getElementById('un_mc').style.height=t+"px";
-	var mcConW=document.getElementById('un_mcIframe').width;
-	$("#un_mcCon").css("margin-left",-mcConW/2+"px");
-
-    $("#mcClose").click(function  (argument) {
-		$("#un_mc").fadeOut("slow");
-		$("#un_mcCon").fadeOut("slow");
-	});
-	$("#shiyan").click(function  (argument) {
-		$("#un_mc").fadeIn("slow");
-		$("#un_mcCon").fadeIn("slow");
-	});
-}
-</script>
 {% endblock %}
 </body>
 </html>

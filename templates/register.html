@@ -5,32 +5,14 @@
 	<title>Unity学院</title>
 	<link rel="stylesheet" type="text/css" href="/static/images/style.css">
 	<script type="text/javascript" src="/static/scripts/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/static/scripts/jquery.cityselect.js"></script>
+	<script type="text/javascript" src="/static/scripts/reg.js"></script>
 </head>
 <body>
 <style type="text/css">
 body{background-color: transparent; }
 </style>
-<!--哪里需要把下面这段copy到哪个页面的body的最下面就行了-->
 <script>
-	function pushregiste(){
-		var jsondata = $("#registe").serialize();
-		//alert(jsondata);
-		$.post("/registerpost/", jsondata, 
-				function(data) {
-					alert(data);
-					window.parent.$("#un_mc").fadeOut("slow");
-					window.parent.$("#un_mcCon").fadeOut("slow");
-				}, "json");
-	}
-	
-	function registe_recall(data){
-		alert(data);
-	}
-
-	function refresh_code(){
-		var ran = Math.random()*100000;
-		document.getElementById('img_code').src='/code?ran='+Math.random()*100000;
-	}
 </script>
 <div class="un_bmCon" id="un_bmCon">
 	<form id="registe" name="registe">
@@ -46,16 +28,23 @@ body{background-color: transparent; }
 				<div class="item">
 					<span>最高学历</span>
 					<div class="in" name="qualifications" id="qualifications"><select>
-						<option>选择您的最高学历</option>
-						<option>高中</option>
+						<option selected="selected" value="">最高学历</option>
+						<option value="中学">中学</option>
+						<option value="中专/技校">中专/技校</option>
+						<option value="大专">大专</option>
+						<option value="本科">本科</option>
+						<option value="硕士">硕士</option>
+						<option value="博士">博士</option>
 					</select></div>
 				</div>
 				<div class="item">
 					<span>所在城市</span>
-					<div class="in" name="city" id="city"><select>
-						<option>选择您的所在城市</option>
-						<option>高中</option>
-					</select></div>
+					<div class="city" id="citycon">
+					<select class="prov" name="province" id="province">
+					</select>
+					<select class="city" name="city" id="city" disabled="disabled" style="display:none">
+					</select>
+					</div>
 				</div>
 				<div class="item">
 					<span>通讯地址</span>
@@ -73,8 +62,9 @@ body{background-color: transparent; }
 				<div class="item">
 					<span>目前状况 </span>
 					<div class="in" name="currentstate" id="currentstate"><select>
-						<option>选择您对Unity了解程度</option>
-						<option>不了解</option>
+						<option value="">选择您对Unity了解程度</option>
+						<option value="了解">了解</option>
+						<option value="不了解">不了解</option>
 					</select></div>
 				</div>
 				<div class="item item02">
@@ -83,12 +73,12 @@ body{background-color: transparent; }
 				</div>
 				<div class="item">
 					<span>验证码 *</span>
-					<div class="in in02"><input type="text" name="validatecode" id="validatecode" maxlength="4" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" /></div>
+					<div class="in in02"><input type="text" name="validatecode" id="validatecode" maxlength="4" /></div>
 					<div class="yzm fl"><img id="img_code" src="/code"></div>
-					<a class="th" href="javascript:void()" onclick="javascript:refresh_code();">看不清，换一张</a>
+					<a class="th" href="#" onclick="javascript:refresh_code();">看不清，换一张</a>
 				</div>
 				<div class="zx">
-					<a href="javascript:void()" onclick="javascript:pushregiste();" class="wybm"><i class="disnoe">我要报名</i></a>
+					<a href="javascript:;" onclick="javascript:pushregiste();" class="wybm"><i class="disnoe">我要报名</i></a>
 				</div>
 			</div>
 		</div>
@@ -97,6 +87,9 @@ body{background-color: transparent; }
 
 <script type="text/javascript">
 $(document).ready(function() {
+	$("#citycon").citySelect();
+	$("#citycon").citySelect({nodata:"none",required:false});
+	
 	$("#wybm").click(function  (argument) {
 		window.parent.$("#un_mc").fadeOut("slow");
 		window.parent.$("#un_mcCon").fadeOut("slow");

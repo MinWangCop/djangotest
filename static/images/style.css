@@ -156,6 +156,7 @@ body{ background-color: #ffffff;}
 .fromGroup .item .in{float: left;}
 .fromGroup .item .in input{ border: 1px solid #dfdfdf; display: inline-block; width: 296px; height: 28px; line-height: 28px;}
 .fromGroup .item .in select{border: 1px solid #dfdfdf;display: inline-block; width: 300px; height: 30px; line-height: 30px;font-size:12px;font-family: 'microsoft yahei','arial'; }
+.fromGroup .item .city select{border: 1px solid #dfdfdf;display: inline-block; width: 148px; height: 30px; line-height: 30px;font-size:12px;font-family: 'microsoft yahei','arial'; }
 .fromGroup .item .in option{height: 30px; line-height: 30px;}
 .fromGroup .item .in textarea{border: 1px solid #dfdfdf;width: 300px; height: 56px; line-height: 28px;}
 .fromGroup .item .in02 input{width: 88px;}

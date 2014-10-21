@@ -11,7 +11,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-
 class Course(models.Model):
     courseid = models.IntegerField(db_column='CourseId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey('School', db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
@@ -60,6 +59,7 @@ class Register(models.Model):
     qqnumber = models.CharField(db_column='QQNumber', max_length=512, blank=True)  # Field name made lowercase.
     currentstate = models.CharField(db_column='CurrentState', max_length=512, blank=True)  # Field name made lowercase.
     extended = models.CharField(db_column='Extended', max_length=2048, blank=True)  # Field name made lowercase.
+    regtime = models.DateTimeField(db_column='RegTime', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False

@@ -2,11 +2,8 @@
 
 from django.shortcuts import render_to_response
 from django.template import Context
-from django.views.decorators.csrf import csrf_exempt
 from portal.models import News, Friends,Student,Studentworks, Teacher
 from django.core.paginator import Paginator
-from django.http import HttpResponse
-from validatecode import render_validate_code,check
 
 # Create your views here.
 def index(request):
@@ -40,20 +37,6 @@ def school(request):
         page = page_list.page(page_index).object_list
         page_objects_list.append(page)
     return render_include_to_response('school.html', 'unity', 'Unity 学院',{'teachers':page_objects_list,})
-
-def validate_code(request):
-    return render_validate_code(request)
-
-@csrf_exempt
-def register_post(request):
-    _code = request.POST["validatecode"]
-    if check(_code, request):
-        return HttpResponse("code")
-    else:
-        return HttpResponse("codeerror")
-
-def register(request):
-    return render_to_response('register.html')        
 
 def render_include_to_response(template_path,current_page,page_title,params = {}):
     context = Context({'current_page':current_page,'page_title':page_title})

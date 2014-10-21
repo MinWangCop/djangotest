@@ -8,10 +8,11 @@ from django.http import HttpResponse
 
 session_key = 'validatecode'
 
-def check(inputcode,request):
+def check(request):
+    _code = request.POST["validatecode"]
     origin_code = request.session[session_key]
     code = ''.join(origin_code)
-    return inputcode.upper() == code.upper()
+    return _code.upper() == code.upper()
 
 def get_font_size(img_height,img_width,code):
         """  将图片高度的80%作为字体大小
