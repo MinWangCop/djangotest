@@ -326,6 +326,7 @@ CREATE TABLE `Register` (
   `QQNumber` varchar(512) DEFAULT NULL COMMENT 'QQ号码',
   `CurrentState` varchar(512) DEFAULT NULL COMMENT '目前状况',
   `Extended` varchar(2048) DEFAULT NULL COMMENT '补充内容',
+  `regtime` datetime DEFAULT NULL,
   PRIMARY KEY (`RegisterId`),
   KEY `FK_Reference_5` (`SchoolId`),
   CONSTRAINT `FK_Reference_5` FOREIGN KEY (`SchoolId`) REFERENCES `School` (`SchoolId`)
