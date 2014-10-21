@@ -32,13 +32,18 @@ def get_register(request):
 
 @csrf_exempt
 def register_post(request):
-    if check(request):
-        reg = get_register(request)
-        _return = validate(reg)
-        if _return=="successful":
-            reg.save()
+    last_submit = request.session.get("submittime",False)
+    if not last_submit:
+        if check(request):
+            reg = get_register(request)
+            _return = validate(reg)
+            if _return=="successful":
+                reg.save()
+                request.session["submittime"] = True
+        else:
+            _return = "codeerror"
     else:
-        _return = "codeerror"
+        _return = "repeat"
     return HttpResponse(_return)
 
 def register(request):

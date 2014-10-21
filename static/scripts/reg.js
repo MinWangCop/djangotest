@@ -23,7 +23,11 @@ function pushregiste(){
 		};
 		
 	if(checkregiste(jsondata))
+	{
+		$("#registe").css("display","none");
+		$("#load").css("display","block");
 		$.post("/registerpost/", jsondata,	registe_recall);
+	}
 }
 
 function checkregiste(jsondata){
@@ -59,7 +63,15 @@ function checkregiste(jsondata){
 }
 
 function registe_recall(data){
+	$("#registe").css("display","block");
+	$("#load").css("display","none");
 	switch(data){
+		case "repeat":{
+			alert("您已经提交过报名信息，我们正在处理当中，请耐心等待，谢谢。");
+			window.parent.$("#un_mc").fadeOut("slow");
+			window.parent.$("#un_mcCon").fadeOut("slow");
+			break;
+		}
 		case "successful":{
 			alert("您提交的报名信息我们已收到，请耐心等候，谢谢！");
 			window.parent.$("#un_mc").fadeOut("slow");
