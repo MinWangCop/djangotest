@@ -1,10 +1,4 @@
-pyitalkiupload
-PIL
-/.settings
-/.svn
 /.project
 /.pydevproject
-/.gitignore
-/src/italkistatic/js/urls.js
 *.pyc
-*.csv
+
