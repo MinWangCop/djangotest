@@ -51,11 +51,11 @@ def register(request):
 
 
 def validate(reg):
-    new_reg = Register.objects.get(mobile__iexact=reg.mobile)
-    if new_reg!=None:
+    new_reg = Register.objects.filter(mobile__iexact=reg.mobile)
+    if len(new_reg) > 0:
         return "repeat"
-    new_reg = Register.objects.get(qqnumber_iexact = reg.qqnumber)
-    if new_reg !=None:
+    new_reg = Register.objects.filter(qqnumber_iexact = reg.qqnumber)
+    if len(new_reg) > 0:
         return 'repeat'
     mobilepattern = re.compile(r'^1[0-9]{2}\d{8}$')
     qqnumberpattern = re.compile(r'^\d{4,}$')
