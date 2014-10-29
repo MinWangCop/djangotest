@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2014-10-20 10:07:47
+Date: 2014-10-29 10:50:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -250,8 +250,11 @@ CREATE TABLE `django_session` (
 -- ----------------------------
 -- Records of django_session
 -- ----------------------------
-INSERT INTO `django_session` VALUES ('0iidyjcdnpll88imp77i60hlfrqhn0db', 'NmRiYjhiZTY1ZjQ0ZjM4ZDlmZDIwYjBlNWI0ZjNiMzI5ZDMzMTc5ODp7Il9kamFuZ29fY2FwdGNoYV9rZXkiOiJbJ0gnLCAnWicsICdSJywgJ0wnXSJ9', '2014-11-02 13:42:50');
-INSERT INTO `django_session` VALUES ('w8ajtybyavqpfme7l8pmo8p57fuow82c', 'YmY4ZTIwZjBiZTFiZWFmZjcxNzQ2NDkzNGJiNTgxNGUxZjM0MDM1MDp7Il9hdXRoX3VzZXJfaGFzaCI6IjFkMDA4MWFlMjhjOTU4YWUzNTIxZGIzNzdlNzk0YjAwYzhkMjRiYmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjEsIl9kamFuZ29fY2FwdGNoYV9rZXkiOiIifQ==', '2014-11-02 13:48:30');
+INSERT INTO `django_session` VALUES ('0iidyjcdnpll88imp77i60hlfrqhn0db', 'MjU5NzYyYjg3M2QyZmQ0NTM2ZjkzODU0ZGY2YmMzMzFhYTU0YTAwYzp7InZhbGlkYXRlY29kZSI6WyJaIiwiVCIsIk0iLCJLIl0sIl9kamFuZ29fY2FwdGNoYV9rZXkiOiJbJ0gnLCAnWicsICdSJywgJ0wnXSJ9', '2014-11-08 16:55:21');
+INSERT INTO `django_session` VALUES ('pa2p19diwouwicb32o5pov2l6irdpkwb', 'YTdkODQ5MDY4ODI4OWY2ODFiM2NhZWFkZGUxNjZkMjc3N2NhMjQzYzp7InZhbGlkYXRlY29kZSI6WyJZIiwiRiIsIlIiLCJXIl19', '2014-11-03 05:56:48');
+INSERT INTO `django_session` VALUES ('vstgotg70df5fz48pzwcyp6ew17j0z76', 'MWY2ZTBiZWI5MjA1YzcyMDU1NmY4MWUwMDcyOWM4OTFhZTM2OGUzZDp7InZhbGlkYXRlY29kZSI6WyJGIiwiTiIsIlEiLCJLIl19', '2014-11-12 02:46:58');
+INSERT INTO `django_session` VALUES ('w8ajtybyavqpfme7l8pmo8p57fuow82c', 'NGU3ZDNhM2MwMGI5N2RiYjU2MTAxZWE0ZmFiMTEwYmY3YjJmZTJhMDp7Il9kamFuZ29fY2FwdGNoYV9rZXkiOiIiLCJfYXV0aF91c2VyX2lkIjoxLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsInN1Ym1pdHRpbWUiOnRydWUsInZhbGlkYXRlY29kZSI6WyJNIiwiQyIsIksiLCJMIl0sIl9hdXRoX3VzZXJfaGFzaCI6IjFkMDA4MWFlMjhjOTU4YWUzNTIxZGIzNzdlNzk0YjAwYzhkMjRiYmIifQ==', '2014-11-09 09:49:58');
+INSERT INTO `django_session` VALUES ('y719khomvrovnykrpplhtzzo6g0kzzeq', 'MGE0ZmMwNGQ2ZDZmMDUzNTgxNmU4NGFkN2UxZDljZWM3OTFlNDdiMTp7fQ==', '2014-11-12 02:45:25');
 
 -- ----------------------------
 -- Table structure for `Friends`
@@ -263,6 +266,7 @@ CREATE TABLE `Friends` (
   `Logo` varchar(1024) DEFAULT NULL COMMENT '合作机构图标',
   `Content` varchar(1024) DEFAULT NULL COMMENT '合作机构简介',
   `SiteUrl` varchar(1024) DEFAULT NULL,
+  `ShowHomePage` int(11) DEFAULT NULL,
   PRIMARY KEY (`FriendsId`),
   KEY `FK_Reference_4` (`SchoolId`),
   CONSTRAINT `FK_Reference_4` FOREIGN KEY (`SchoolId`) REFERENCES `School` (`SchoolId`)
@@ -271,18 +275,18 @@ CREATE TABLE `Friends` (
 -- ----------------------------
 -- Records of Friends
 -- ----------------------------
-INSERT INTO `Friends` VALUES ('1', null, '/static/images/flogo01.jpg', '优美缔（上海）有限公司，这是Unity在全球建立的第九个本地化分公司，标志着Unity从此正式登陆中国市场。仅仅这六个月，Unity Web Player下载量就达到4000万次，而Unity 大中华区的用户也在稳步增加，几乎达到全球数量的三分之一；与此同时，Unity 大中华区分公司开始全力为各类中国游戏开发企业及非游戏应用开发企业提供技术支持和培训工作。', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('2', null, '/static/images/flogo02.jpg', 'Unity Games中国致力于发布各平台的优质游戏，因此我们的宗旨是让游戏发行更加民主化、国际化，把好的游戏带到国内外。并为各家战略发行商合作伙伴提供最好的内容，为开发者提供最完善的增值云服务。', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('3', null, '/static/images/flogo03.jpg', '深圳英宝通科技有限公司(Powerwin)是宝德集团旗下子公司,拥有一支具有多年从事软件销售,软件研发,企业信息化产品增值服务的优秀团 队.英宝通成立以来秉承与国际领先企业共成长的理念,先后签约Microsoft, Google等国际巨擘,并成为其中国区总代理商,为其提供软件销售与增值业务服务;2012年英宝通进军游戏3D领域携手国际领先跨平台3D引擎Unity 3D,成为其中国区总代理商.经过几年磨砺,英宝通已经成长为以软件产品为核心,企业增值服务为导向的信息化企业.\r\n', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('4', null, '/static/images/flogo04.jpg', '蓝港在线一直是中国领先的网络游戏研发商和发行商，近年来，已经发展成为一家专注于研发及发行精品手机游戏的公司。\r\n我们在游戏开发过程中注重质量，并专门研发中度和重度游戏，这些游戏实现出极致的格斗体验、宏大的场面、精致的影像、丰富的内容、多元化的玩法，因此要求很强的游戏开发能力。中度和重度游戏普遍比一般游戏备有较长的生命周期及较高的充值流水，并且近期移动设备均具备高分辨率大触控屏幕，使图案影像显示更为突出，这些新控制技术对中度及重度游戏研发尤为重要。我们相信，凭借我们研发及发行中度和重度游戏的丰富经验，我们定能抓紧中度和重度手机游戏的庞大市场商机。\r\n', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('5', null, '/static/images/flogo05.jpg', '上奇科技于1991年7月在台北成立，由一群对计算机绘图软件怀抱热诚的年轻人，禀持专业负责的精神，以推动台湾计算机绘图的普及为使命，凭着专业的知识及丰富的经验，已为台湾绘图软件市场开创出一片美丽天空，俨然为此专业领域的佼佼者。在跨越21世纪的同时，上奇科技成功的建构了全亚洲（大中华区、东南亚国协(ASEAN)、韩国）区域行销服务平台，目前为大中华地区绘图、影像、多媒体及网际网络领域的专业领导者，是亚洲区最大加值行销服务提供者。总部设于台湾的上奇科技，目前于香港、北京、上海、广州、新加坡、马来西亚及韩国等地设有分公司，员工逾200名。精英齐聚的上奇科技，怀着丰沛的企图心，朝着成为亚洲信息界小巨人的愿景而迈进。\r\n', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('6', null, '/static/images/flogo06.jpg', '完美世界（北京）网络技术有限公司（以下简称：完美世界）是中国领先的网络游戏开发商和运营商之一。公司成立于2004年，致力于以自主原创为根本，以研发优质的精品网游为宗旨，以推广东方文化于世界为长远目标。\r\n凭借强大的技术实力及富有创意的游戏设计能力，完美世界迅速推出广受大众欢迎的游戏产品，以满足全球用户不断变化的需求及市场发展。作为网络游戏产品提供商，完美世界正面向全球开展业务，全面拓展海外市场。目前，已经成功的将旗下部分产品出口到了海外一百多个国家和地区。', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('7', null, '/static/images/flogo01.jpg', '优美缔（上海）有限公司，这是Unity在全球建立的第九个本地化分公司，标志着Unity从此正式登陆中国市场。仅仅这六个月，Unity Web Player下载量就达到4000万次，而Unity 大中华区的用户也在稳步增加，几乎达到全球数量的三分之一；与此同时，Unity 大中华区分公司开始全力为各类中国游戏开发企业及非游戏应用开发企业提供技术支持和培训工作。', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('8', null, '/static/images/flogo02.jpg', 'Unity Games中国致力于发布各平台的优质游戏，因此我们的宗旨是让游戏发行更加民主化、国际化，把好的游戏带到国内外。并为各家战略发行商合作伙伴提供最好的内容，为开发者提供最完善的增值云服务。', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('9', null, '/static/images/flogo03.jpg', '深圳英宝通科技有限公司(Powerwin)是宝德集团旗下子公司,拥有一支具有多年从事软件销售,软件研发,企业信息化产品增值服务的优秀团 队.英宝通成立以来秉承与国际领先企业共成长的理念,先后签约Microsoft, Google等国际巨擘,并成为其中国区总代理商,为其提供软件销售与增值业务服务;2012年英宝通进军游戏3D领域携手国际领先跨平台3D引擎Unity 3D,成为其中国区总代理商.经过几年磨砺,英宝通已经成长为以软件产品为核心,企业增值服务为导向的信息化企业.\r\n', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('10', null, '/static/images/flogo04.jpg', '蓝港在线一直是中国领先的网络游戏研发商和发行商，近年来，已经发展成为一家专注于研发及发行精品手机游戏的公司。\r\n我们在游戏开发过程中注重质量，并专门研发中度和重度游戏，这些游戏实现出极致的格斗体验、宏大的场面、精致的影像、丰富的内容、多元化的玩法，因此要求很强的游戏开发能力。中度和重度游戏普遍比一般游戏备有较长的生命周期及较高的充值流水，并且近期移动设备均具备高分辨率大触控屏幕，使图案影像显示更为突出，这些新控制技术对中度及重度游戏研发尤为重要。我们相信，凭借我们研发及发行中度和重度游戏的丰富经验，我们定能抓紧中度和重度手机游戏的庞大市场商机。\r\n', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('11', null, '/static/images/flogo05.jpg', '上奇科技于1991年7月在台北成立，由一群对计算机绘图软件怀抱热诚的年轻人，禀持专业负责的精神，以推动台湾计算机绘图的普及为使命，凭着专业的知识及丰富的经验，已为台湾绘图软件市场开创出一片美丽天空，俨然为此专业领域的佼佼者。在跨越21世纪的同时，上奇科技成功的建构了全亚洲（大中华区、东南亚国协(ASEAN)、韩国）区域行销服务平台，目前为大中华地区绘图、影像、多媒体及网际网络领域的专业领导者，是亚洲区最大加值行销服务提供者。总部设于台湾的上奇科技，目前于香港、北京、上海、广州、新加坡、马来西亚及韩国等地设有分公司，员工逾200名。精英齐聚的上奇科技，怀着丰沛的企图心，朝着成为亚洲信息界小巨人的愿景而迈进。\r\n', 'http://unity3d.com/');
-INSERT INTO `Friends` VALUES ('12', null, '/static/images/flogo06.jpg', '完美世界（北京）网络技术有限公司（以下简称：完美世界）是中国领先的网络游戏开发商和运营商之一。公司成立于2004年，致力于以自主原创为根本，以研发优质的精品网游为宗旨，以推广东方文化于世界为长远目标。\r\n凭借强大的技术实力及富有创意的游戏设计能力，完美世界迅速推出广受大众欢迎的游戏产品，以满足全球用户不断变化的需求及市场发展。作为网络游戏产品提供商，完美世界正面向全球开展业务，全面拓展海外市场。目前，已经成功的将旗下部分产品出口到了海外一百多个国家和地区。', 'http://unity3d.com/');
+INSERT INTO `Friends` VALUES ('1', null, '/static/images/flogo01.jpg', '优美缔（上海）有限公司，这是Unity在全球建立的第九个本地化分公司，标志着Unity从此正式登陆中国市场。仅仅这六个月，Unity Web Player下载量就达到4000万次，而Unity 大中华区的用户也在稳步增加，几乎达到全球数量的三分之一；与此同时，Unity 大中华区分公司开始全力为各类中国游戏开发企业及非游戏应用开发企业提供技术支持和培训工作。', 'http://unity3d.com/', '1');
+INSERT INTO `Friends` VALUES ('2', null, '/static/images/flogo02.jpg', 'Unity Games中国致力于发布各平台的优质游戏，因此我们的宗旨是让游戏发行更加民主化、国际化，把好的游戏带到国内外。并为各家战略发行商合作伙伴提供最好的内容，为开发者提供最完善的增值云服务。', 'http://unity3d.com/', '1');
+INSERT INTO `Friends` VALUES ('3', null, '/static/images/flogo03.jpg', '深圳英宝通科技有限公司(Powerwin)是宝德集团旗下子公司,拥有一支具有多年从事软件销售,软件研发,企业信息化产品增值服务的优秀团 队.英宝通成立以来秉承与国际领先企业共成长的理念,先后签约Microsoft, Google等国际巨擘,并成为其中国区总代理商,为其提供软件销售与增值业务服务;2012年英宝通进军游戏3D领域携手国际领先跨平台3D引擎Unity 3D,成为其中国区总代理商.经过几年磨砺,英宝通已经成长为以软件产品为核心,企业增值服务为导向的信息化企业.\r\n', 'http://unity3d.com/', '1');
+INSERT INTO `Friends` VALUES ('4', null, '/static/images/flogo04.jpg', '蓝港在线一直是中国领先的网络游戏研发商和发行商，近年来，已经发展成为一家专注于研发及发行精品手机游戏的公司。\r\n我们在游戏开发过程中注重质量，并专门研发中度和重度游戏，这些游戏实现出极致的格斗体验、宏大的场面、精致的影像、丰富的内容、多元化的玩法，因此要求很强的游戏开发能力。中度和重度游戏普遍比一般游戏备有较长的生命周期及较高的充值流水，并且近期移动设备均具备高分辨率大触控屏幕，使图案影像显示更为突出，这些新控制技术对中度及重度游戏研发尤为重要。我们相信，凭借我们研发及发行中度和重度游戏的丰富经验，我们定能抓紧中度和重度手机游戏的庞大市场商机。\r\n', 'http://unity3d.com/', '1');
+INSERT INTO `Friends` VALUES ('5', null, '/static/images/flogo05.jpg', '上奇科技于1991年7月在台北成立，由一群对计算机绘图软件怀抱热诚的年轻人，禀持专业负责的精神，以推动台湾计算机绘图的普及为使命，凭着专业的知识及丰富的经验，已为台湾绘图软件市场开创出一片美丽天空，俨然为此专业领域的佼佼者。在跨越21世纪的同时，上奇科技成功的建构了全亚洲（大中华区、东南亚国协(ASEAN)、韩国）区域行销服务平台，目前为大中华地区绘图、影像、多媒体及网际网络领域的专业领导者，是亚洲区最大加值行销服务提供者。总部设于台湾的上奇科技，目前于香港、北京、上海、广州、新加坡、马来西亚及韩国等地设有分公司，员工逾200名。精英齐聚的上奇科技，怀着丰沛的企图心，朝着成为亚洲信息界小巨人的愿景而迈进。\r\n', 'http://unity3d.com/', '1');
+INSERT INTO `Friends` VALUES ('6', null, '/static/images/flogo06.jpg', '完美世界（北京）网络技术有限公司（以下简称：完美世界）是中国领先的网络游戏开发商和运营商之一。公司成立于2004年，致力于以自主原创为根本，以研发优质的精品网游为宗旨，以推广东方文化于世界为长远目标。\r\n凭借强大的技术实力及富有创意的游戏设计能力，完美世界迅速推出广受大众欢迎的游戏产品，以满足全球用户不断变化的需求及市场发展。作为网络游戏产品提供商，完美世界正面向全球开展业务，全面拓展海外市场。目前，已经成功的将旗下部分产品出口到了海外一百多个国家和地区。', 'http://unity3d.com/', '1');
+INSERT INTO `Friends` VALUES ('7', null, '/static/images/flogo01.jpg', '优美缔（上海）有限公司，这是Unity在全球建立的第九个本地化分公司，标志着Unity从此正式登陆中国市场。仅仅这六个月，Unity Web Player下载量就达到4000万次，而Unity 大中华区的用户也在稳步增加，几乎达到全球数量的三分之一；与此同时，Unity 大中华区分公司开始全力为各类中国游戏开发企业及非游戏应用开发企业提供技术支持和培训工作。', 'http://unity3d.com/', null);
+INSERT INTO `Friends` VALUES ('8', null, '/static/images/flogo02.jpg', 'Unity Games中国致力于发布各平台的优质游戏，因此我们的宗旨是让游戏发行更加民主化、国际化，把好的游戏带到国内外。并为各家战略发行商合作伙伴提供最好的内容，为开发者提供最完善的增值云服务。', 'http://unity3d.com/', null);
+INSERT INTO `Friends` VALUES ('9', null, '/static/images/flogo03.jpg', '深圳英宝通科技有限公司(Powerwin)是宝德集团旗下子公司,拥有一支具有多年从事软件销售,软件研发,企业信息化产品增值服务的优秀团 队.英宝通成立以来秉承与国际领先企业共成长的理念,先后签约Microsoft, Google等国际巨擘,并成为其中国区总代理商,为其提供软件销售与增值业务服务;2012年英宝通进军游戏3D领域携手国际领先跨平台3D引擎Unity 3D,成为其中国区总代理商.经过几年磨砺,英宝通已经成长为以软件产品为核心,企业增值服务为导向的信息化企业.\r\n', 'http://unity3d.com/', null);
+INSERT INTO `Friends` VALUES ('10', null, '/static/images/flogo04.jpg', '蓝港在线一直是中国领先的网络游戏研发商和发行商，近年来，已经发展成为一家专注于研发及发行精品手机游戏的公司。\r\n我们在游戏开发过程中注重质量，并专门研发中度和重度游戏，这些游戏实现出极致的格斗体验、宏大的场面、精致的影像、丰富的内容、多元化的玩法，因此要求很强的游戏开发能力。中度和重度游戏普遍比一般游戏备有较长的生命周期及较高的充值流水，并且近期移动设备均具备高分辨率大触控屏幕，使图案影像显示更为突出，这些新控制技术对中度及重度游戏研发尤为重要。我们相信，凭借我们研发及发行中度和重度游戏的丰富经验，我们定能抓紧中度和重度手机游戏的庞大市场商机。\r\n', 'http://unity3d.com/', null);
+INSERT INTO `Friends` VALUES ('11', null, '/static/images/flogo05.jpg', '上奇科技于1991年7月在台北成立，由一群对计算机绘图软件怀抱热诚的年轻人，禀持专业负责的精神，以推动台湾计算机绘图的普及为使命，凭着专业的知识及丰富的经验，已为台湾绘图软件市场开创出一片美丽天空，俨然为此专业领域的佼佼者。在跨越21世纪的同时，上奇科技成功的建构了全亚洲（大中华区、东南亚国协(ASEAN)、韩国）区域行销服务平台，目前为大中华地区绘图、影像、多媒体及网际网络领域的专业领导者，是亚洲区最大加值行销服务提供者。总部设于台湾的上奇科技，目前于香港、北京、上海、广州、新加坡、马来西亚及韩国等地设有分公司，员工逾200名。精英齐聚的上奇科技，怀着丰沛的企图心，朝着成为亚洲信息界小巨人的愿景而迈进。\r\n', 'http://unity3d.com/', null);
+INSERT INTO `Friends` VALUES ('12', null, '/static/images/flogo06.jpg', '完美世界（北京）网络技术有限公司（以下简称：完美世界）是中国领先的网络游戏开发商和运营商之一。公司成立于2004年，致力于以自主原创为根本，以研发优质的精品网游为宗旨，以推广东方文化于世界为长远目标。\r\n凭借强大的技术实力及富有创意的游戏设计能力，完美世界迅速推出广受大众欢迎的游戏产品，以满足全球用户不断变化的需求及市场发展。作为网络游戏产品提供商，完美世界正面向全球开展业务，全面拓展海外市场。目前，已经成功的将旗下部分产品出口到了海外一百多个国家和地区。', 'http://unity3d.com/', null);
 
 -- ----------------------------
 -- Table structure for `News`
@@ -330,11 +334,7 @@ CREATE TABLE `Register` (
   PRIMARY KEY (`RegisterId`),
   KEY `FK_Reference_5` (`SchoolId`),
   CONSTRAINT `FK_Reference_5` FOREIGN KEY (`SchoolId`) REFERENCES `School` (`SchoolId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of Register
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `School`
