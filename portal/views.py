@@ -39,6 +39,7 @@ def school(request):
     return render_include_to_response('school.html', 'unity', 'Unity 学院',{'teachers':page_objects_list,})
 
 def render_include_to_response(template_path,current_page,page_title,params = {}):
-    context = Context({'current_page':current_page,'page_title':page_title})
+    friends_array = Friends.objects.order_by('-friendsid').filter(show_home_page__exact='1')
+    context = Context({'current_page':current_page,'page_title':page_title,'top_friends':friends_array[:4]})
     context.push(params)
     return render_to_response(template_path,context)

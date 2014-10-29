@@ -26,6 +26,7 @@ class Friends(models.Model):
     logo = models.CharField(db_column='Logo', max_length=1024, blank=True)  # Field name made lowercase.
     content = models.CharField(db_column='Content', max_length=1024, blank=True)  # Field name made lowercase.
     siteurl = models.CharField(db_column='SiteUrl', max_length=1024, blank=True)  # Field name made lowercase.
+    show_home_page = models.IntegerField(db_column='ShowHomePage')  # Field name made lowercase.
 
     class Meta:
         managed = False

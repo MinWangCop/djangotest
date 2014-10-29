@@ -32,7 +32,7 @@ window.onload=function  (argument) {
 			<li {% ifequal current_page "unity" %} class="hot" {% endifequal %}><a href="/school/" class="first">Unity学院</a><i></i></li>
 			<li {% ifequal current_page "news" %} class="hot" {% endifequal %}><a href="/news/" >学院新闻</a><i></i></li>
 			<li {% ifequal current_page "student" %} class="hot" {% endifequal %}><a href="/studentshow/">学员风采</a><i></i></li>
-			<li {% ifequal current_page "garden" %} class="hot" {% endifequal %}><a href="http://edu.china.unity3d.com/learning_document">学习园地</a><i></i></li>
+			<li {% ifequal current_page "garden" %} class="hot" {% endifequal %}><a href="http://forum.china.unity3d.com/forum.php">学习园地</a><i></i></li>
 			<li {% ifequal current_page "friends" %} class="hot" {% endifequal %}><a href="/friends/">合作机构</a><i></i></li>
 			<li><a href="javascript:;" class="last" id="shiyan" name="shiyan">我要报名</a><i></i></li>
 		</ul>
@@ -62,7 +62,11 @@ window.onload=function  (argument) {
 <div class="un_footerCon un_footerConN">
 	<div class="un_footer">
 		<div class="menu"><p><a href="javascript:()">Unity全球官网</a> | <a href="javascript:()">Unity中文官网</a> | <a href="javascript:()">大中华服务区</a> | <a href="javascript:()">联系我们</a></p></div>
-		<div class="friends">合作机构<a href="javascript:()" target="_blank"><img src="/static/images/homepage_68.png"></a><a href="javascript:()" target="_blank"><img src="/static/images/homepage_68.png"></a><a href="" target="_blank"><img src="/static/images/homepage_68.png"></a><a href="javascript:()" target="_blank"><img src="/static/images/homepage_68.png"></a></div>
+		<div class="friends">合作机构
+		{%for friend in top_friends%}
+			<a href="{{friend.siteurl}}" target="_blank"><img src="{{friend.logo}}"></a>
+		{%endfor%}
+		</div>
 		<div class="copyright">版权 &copy; 2014 Unity 官方学院  沪ICP备13002771号-2</div>
 		<div class="weibo"><a href="javascript:()">学院官方微博</a><br/><img src="/static/images/homepage_65.png"></div>
 	</div>
