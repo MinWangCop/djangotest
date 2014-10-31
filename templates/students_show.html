@@ -81,7 +81,8 @@
 	$("#un_workShowList02 li,#un_workShowList01 li").click(function  (argument) {
 		var this_li = $(this);
 		workid = this_li.attr("workid")
-		$(this).addClass("hover").siblings().removeClass("hover");
+		$("#un_workShowList02 li,#un_workShowList01 li").siblings().removeClass("hover");
+		$(this).addClass("hover");
 		$(".un_workShow .un_workShowInfo").hide();
 		$("#work"+workid).show();
 	});
