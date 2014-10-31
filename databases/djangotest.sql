@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2014-10-29 10:50:01
+Date: 2014-10-31 15:04:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -250,9 +250,9 @@ CREATE TABLE `django_session` (
 -- ----------------------------
 -- Records of django_session
 -- ----------------------------
-INSERT INTO `django_session` VALUES ('0iidyjcdnpll88imp77i60hlfrqhn0db', 'MjU5NzYyYjg3M2QyZmQ0NTM2ZjkzODU0ZGY2YmMzMzFhYTU0YTAwYzp7InZhbGlkYXRlY29kZSI6WyJaIiwiVCIsIk0iLCJLIl0sIl9kamFuZ29fY2FwdGNoYV9rZXkiOiJbJ0gnLCAnWicsICdSJywgJ0wnXSJ9', '2014-11-08 16:55:21');
-INSERT INTO `django_session` VALUES ('pa2p19diwouwicb32o5pov2l6irdpkwb', 'YTdkODQ5MDY4ODI4OWY2ODFiM2NhZWFkZGUxNjZkMjc3N2NhMjQzYzp7InZhbGlkYXRlY29kZSI6WyJZIiwiRiIsIlIiLCJXIl19', '2014-11-03 05:56:48');
-INSERT INTO `django_session` VALUES ('vstgotg70df5fz48pzwcyp6ew17j0z76', 'MWY2ZTBiZWI5MjA1YzcyMDU1NmY4MWUwMDcyOWM4OTFhZTM2OGUzZDp7InZhbGlkYXRlY29kZSI6WyJGIiwiTiIsIlEiLCJLIl19', '2014-11-12 02:46:58');
+INSERT INTO `django_session` VALUES ('0iidyjcdnpll88imp77i60hlfrqhn0db', 'YWQ3YTZlMjViMWI3MTc0MmUxNjc3ZmJkNjk1ZmQzYjYwODk4ZDQ3Mzp7InZhbGlkYXRlY29kZSI6WyJHIiwiViIsIk0iLCJQIl0sIl9kamFuZ29fY2FwdGNoYV9rZXkiOiJbJ0gnLCAnWicsICdSJywgJ0wnXSJ9', '2014-11-12 15:55:52');
+INSERT INTO `django_session` VALUES ('pa2p19diwouwicb32o5pov2l6irdpkwb', 'MmMzNTczYWJjZTk2NDlmMTkyNjJlNjc0MjY1OTU5ZDE3NGRmMTg2Yzp7InZhbGlkYXRlY29kZSI6WyJXIiwiUSIsIk4iLCJVIl19', '2014-11-12 15:58:25');
+INSERT INTO `django_session` VALUES ('vstgotg70df5fz48pzwcyp6ew17j0z76', 'YTg3N2E0NzQ4Nzg4ZTBhYmU3MTBlNmMzM2I2NGE5ZmEzZjMzOTAwYjp7InZhbGlkYXRlY29kZSI6WyJLIiwiVCIsIk0iLCJCIl19', '2014-11-14 07:03:13');
 INSERT INTO `django_session` VALUES ('w8ajtybyavqpfme7l8pmo8p57fuow82c', 'NGU3ZDNhM2MwMGI5N2RiYjU2MTAxZWE0ZmFiMTEwYmY3YjJmZTJhMDp7Il9kamFuZ29fY2FwdGNoYV9rZXkiOiIiLCJfYXV0aF91c2VyX2lkIjoxLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsInN1Ym1pdHRpbWUiOnRydWUsInZhbGlkYXRlY29kZSI6WyJNIiwiQyIsIksiLCJMIl0sIl9hdXRoX3VzZXJfaGFzaCI6IjFkMDA4MWFlMjhjOTU4YWUzNTIxZGIzNzdlNzk0YjAwYzhkMjRiYmIifQ==', '2014-11-09 09:49:58');
 INSERT INTO `django_session` VALUES ('y719khomvrovnykrpplhtzzo6g0kzzeq', 'MGE0ZmMwNGQ2ZDZmMDUzNTgxNmU4NGFkN2UxZDljZWM3OTFlNDdiMTp7fQ==', '2014-11-12 02:45:25');
 
@@ -337,6 +337,19 @@ CREATE TABLE `Register` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of Register
+-- ----------------------------
+INSERT INTO `Register` VALUES ('1', null, 'dsfdsf', '中学', '天津河东区', 'dsfdsf', 'dsfdsf', 'sdfdsf', 'sdfdsf', '了解', 'dsfdsf', '2014-10-21 02:59:13');
+INSERT INTO `Register` VALUES ('2', null, 'dsfsf', '中学', '河北石家庄', '第三方地方热热我', '第三方地方热热我', '18601776173', '54864963', '不了解', '第三方第三方', '2014-10-21 03:03:06');
+INSERT INTO `Register` VALUES ('3', null, 'dsfd', '中专/技校', '北京东城区', 'dsfdsf', 'dsfdsf', '17728372837', 'dfdsf', '了解', 'dfdsf', '2014-10-21 03:21:00');
+INSERT INTO `Register` VALUES ('4', null, 'dsfdsfdsf', '中学', '天津河东区', 'dsfdsfds', 'dsfdsfds', '18672787878', '21323424324', '了解', 'dsfdsf', '2014-10-21 03:29:56');
+INSERT INTO `Register` VALUES ('5', null, 'sdfdsfdsf', '中专/技校', '山西阳泉', 'dsfdsfdsf', 'dsfdsfdsf', '12345678909', '1232344324324', '不了解', 'sdfdsfdsf', '2014-10-21 04:17:57');
+INSERT INTO `Register` VALUES ('6', null, '第三方第三方', '', 'undefined', '', '', '12345678909', '43567544', '', '', '2014-10-21 04:35:54');
+INSERT INTO `Register` VALUES ('7', null, '斯蒂芬第三方的', '', '', '', '', '12343543454', '234535', '', '', '2014-10-21 04:38:06');
+INSERT INTO `Register` VALUES ('8', null, '斯蒂芬第三方的', '中专/技校', '河北秦皇岛', '斯蒂芬第三方', '斯蒂芬第三方', '12343543454', '234535', '了解', '的sere万人', '2014-10-21 04:38:36');
+INSERT INTO `Register` VALUES ('9', null, '第三方第三方', '中学', '北京东城区', '第三方第三方', '第三方第三方', '18601776173', '234324', '了解', '第三方第三方', '2014-10-21 05:15:21');
+
+-- ----------------------------
 -- Table structure for `School`
 -- ----------------------------
 DROP TABLE IF EXISTS `School`;
@@ -392,20 +405,27 @@ CREATE TABLE `StudentWorks` (
   `publishtime` datetime DEFAULT NULL COMMENT '发布时间',
   `studentName` varchar(1024) DEFAULT NULL COMMENT '学员姓名',
   `worksName` varchar(1024) DEFAULT NULL COMMENT '作品名称',
+  `smallimg` varchar(1024) DEFAULT NULL,
+  `originimg` varchar(1024) DEFAULT NULL,
+  `description` varchar(4000) DEFAULT NULL,
   PRIMARY KEY (`StudentworksId`),
   KEY `FK_Reference_7` (`SchoolId`),
   KEY `FK_Reference_9` (`StudentId`),
   CONSTRAINT `FK_Reference_7` FOREIGN KEY (`SchoolId`) REFERENCES `School` (`SchoolId`),
   CONSTRAINT `FK_Reference_9` FOREIGN KEY (`StudentId`) REFERENCES `Student` (`StudentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of StudentWorks
 -- ----------------------------
-INSERT INTO `StudentWorks` VALUES ('1', null, '1', null, '2014-10-17 22:17:10', '张三', '飞越黄河');
-INSERT INTO `StudentWorks` VALUES ('2', null, '2', null, '2014-10-08 22:17:30', '李四', '横渡长江');
-INSERT INTO `StudentWorks` VALUES ('3', null, '3', null, '2014-10-09 22:17:51', '王武', '横跨太平洋');
-INSERT INTO `StudentWorks` VALUES ('4', null, '4', null, '2014-10-14 22:18:13', 'Nick', '我的奋斗');
+INSERT INTO `StudentWorks` VALUES ('1', null, '1', '/static/images/zuopin02.jpg', '2014-10-17 22:17:10', '张三', '飞越黄河', '/static/images/zuopin.jpg', '/static/images/zuopin02.jpg', 'dsfdsf');
+INSERT INTO `StudentWorks` VALUES ('2', null, '2', '/static/images/zuopin02.jpg', '2014-10-08 22:17:30', '李四', '横渡长江', '/static/images/zuopin.jpg', '/static/images/zuopin02.jpg', 'dsfdsf');
+INSERT INTO `StudentWorks` VALUES ('3', null, '3', '/static/images/zuopin02.jpg', '2014-10-09 22:17:51', '王武', '横跨太平洋', '/static/images/zuopin.jpg', '/static/images/zuopin02.jpg', 'dsfdsf');
+INSERT INTO `StudentWorks` VALUES ('4', null, '4', '/static/images/zuopin3.jpg', '2014-10-14 22:18:13', 'Nick', '我的奋斗', '/static/images/zuopin.jpg', '/static/images/zuopin3.jpg', 'dsfdsfds');
+INSERT INTO `StudentWorks` VALUES ('5', null, null, '/static/images/zuopin02.jpg', '2014-10-17 22:17:10', '张三', '飞越黄河', '/static/images/zuopin.jpg', '/static/images/zuopin02.jpg', 'dsfdsf');
+INSERT INTO `StudentWorks` VALUES ('6', null, null, '/static/images/zuopin02.jpg', '2014-10-08 22:17:30', '李四', '横渡长江', '/static/images/zuopin.jpg', '/static/images/zuopin02.jpg', 'dsfdsf');
+INSERT INTO `StudentWorks` VALUES ('7', null, null, '/static/images/zuopin02.jpg', '2014-10-09 22:17:51', '王武', '横跨太平洋', '/static/images/zuopin.jpg', '/static/images/zuopin02.jpg', 'dsfdsf');
+INSERT INTO `StudentWorks` VALUES ('8', null, null, '/static/images/zuopin3.jpg', '2014-10-14 22:18:13', 'Nick', '我的奋斗', '/static/images/zuopin.jpg', '/static/images/zuopin3.jpg', 'dsfdsfds');
 
 -- ----------------------------
 -- Table structure for `Teacher`

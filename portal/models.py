@@ -97,6 +97,9 @@ class Studentworks(models.Model):
     publishtime = models.DateTimeField(blank=True, null=True)
     studentname = models.CharField(db_column='studentName', max_length=1024, blank=True)  # Field name made lowercase.
     worksname = models.CharField(db_column='worksName', max_length=1024, blank=True)  # Field name made lowercase.
+    smallimg = models.CharField(db_column='smallimg', max_length=1024, blank=True)  # Field name made lowercase.
+    originimg = models.CharField(db_column='originimg', max_length=1024, blank=True)  # Field name made lowercase.
+    description = models.CharField(db_column='description', max_length=4000, blank=True)  # Field name made lowercase.
 
     class Meta:
         managed = False

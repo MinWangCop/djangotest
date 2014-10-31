@@ -26,45 +26,64 @@
 	</div>
 	<div class="un_workShow" >
 		<ul class="list clearfix " id="un_workShowList01">
-			{% for work in works %}
-			<li><a href=""><img src="/static/images/zuopin.jpg"></a><i></i></li>
+			{% for work in top_works %}
+			<li id="liwork{{work.studentworksid}}" workid="{{work.studentworksid}}"><a href="javascript:;"><img src="{{work.smallimg}}"></a><i></i></li>
 			{% endfor %}
 		</ul>
-		<div class="un_workShowInfo clearfix">
+		{% for work in top_works %}
+		<div class="un_workShowInfo clearfix" style="display:none" id="work{{work.studentworksid}}" name="work{{work.studentworksid}}">
 			<div class="img">
-					<img src="/static/images/zuopin02.jpg">
+					<img src="{{work.originimg}}" style="width:589px;height:292px">
 				</div>
 				<div class="con">
 					<div class="tit">
-						<h3>作品名称</h3>
-						<span class="mz">学员名字</span>
-						<span class="rq">2014-05-06</span>
+						<h3>{{work.worksname}}</h3>
+						<span class="mz">{{work.studentname}}</span>
+						<span class="rq">{{work.publishtime|date:"Y/m/d"}}</span>
 					</div>
-					<div class="info">
-					每类新闻一个独立区域，点击更多进入学院新闻相应区域的页面，按时间倒序排列。显示新闻的名称和最新的发布时间。<br/>
-
-点击名称出现新闻详细页面，与学院新闻内容保持一致...每类新闻一个独立区域，点击更多进入学院新闻相应区域的页面，按时间倒序排列。显示新闻的名称和最新的发布时间，点击名称出现新闻详细页面，与学院新闻内容保持一致...
-
-					</div>
+					<div class="info">{{work.description}}</div>
 				</div>
 		</div>
+		{% endfor %}
+		{% for work in bottom_works %}
+		<div class="un_workShowInfo clearfix" style="display:none" id="work{{work.studentworksid}}" name="work{{work.studentworksid}}">
+			<div class="img">
+					<img src="{{work.originimg}}" style="width:589px;height:292px">
+				</div>
+				<div class="con">
+					<div class="tit">
+						<h3>{{work.worksname}}</h3>
+						<span class="mz">{{work.studentname}}</span>
+						<span class="rq">{{work.publishtime|date:"Y/m/d"}}</span>
+					</div>
+					<div class="info">{{work.description}}</div>
+				</div>
+		</div>
+		{% endfor %}
 		<ul class="list clearfix " id="un_workShowList02">
-			{% for work in works %}
-			<li><a href=""><img src="/static/images/zuopin.jpg"></a><i></i></li>
+			{% for work in bottom_works %}
+			<li id="liwork{{work.studentworksid}}" workid="{{work.studentworksid}}"><a href="javascript:;"><img src="{{work.smallimg}}"></a><i></i></li>
 			{% endfor %}
 		</ul>
 	</div>
 
 </div>
 <script type="text/javascript">
+	$(function(){
+		$("#liwork{{defaultworkid}}").addClass("hover").siblings().removeClass("hover");
+		$("#work{{defaultworkid}}").show();
+	});
+	
 	$("#un_perShow li").hover(function  (argument) {
 		$(this).addClass("hover").siblings().removeClass("hover").children(".con").hide();;
 		$(this).children(".con").show();
 	});
-	$("#un_workShowList02 li,#un_workShowList01 li").hover(function  (argument) {
+	$("#un_workShowList02 li,#un_workShowList01 li").click(function  (argument) {
+		var this_li = $(this);
+		workid = this_li.attr("workid")
 		$(this).addClass("hover").siblings().removeClass("hover");
-
-		
+		$(".un_workShow .un_workShowInfo").hide();
+		$("#work"+workid).show();
 	});
 </script>
 {%endblock%}
