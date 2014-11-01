@@ -5,20 +5,26 @@ from portal.models import News, Friends,Student,Studentworks,Teacher
 
 @admin.register(Friends)
 class FriendsAdmin(admin.ModelAdmin):
-    list_display=('logo','content','siteurl')
+    list_display=('logo','siteurl','content')  
+    fields = (('logo', 'siteurl'), 'content')
+
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
-    pass
+    list_display=('title','publishtime','picture','bigpic')  
+    fields = ('title','publishtime','picture','bigpic', 'content')
+
 
 
 @admin.register(Student)
-class StudentStudentAdmin(admin.ModelAdmin):
-    pass
+class StudentAdmin(admin.ModelAdmin):
+    list_display=('fullname','pic','title','content')  
+    fields = ('fullname','pic','title','content')
 
 @admin.register(Studentworks)
 class StudentworksAdmin(admin.ModelAdmin):
-    pass
+    list_display=('worksname','studentname','publishtime','worksurl')  
+    fields = ('worksname','studentname','publishtime','worksurl')
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):

@@ -24,7 +24,7 @@ class Friends(models.Model):
     friendsid = models.IntegerField(db_column='FriendsId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey('School', db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
     logo = models.CharField(db_column='Logo', max_length=1024, blank=True)  # Field name made lowercase.
-    content = models.CharField(db_column='Content', max_length=1024, blank=True)  # Field name made lowercase.
+    content = models.TextField(db_column='Content', max_length=1024, blank=True)  # Field name made lowercase.
     siteurl = models.CharField(db_column='SiteUrl', max_length=1024, blank=True)  # Field name made lowercase.
     show_home_page = models.IntegerField(db_column='ShowHomePage')  # Field name made lowercase.
 
@@ -38,7 +38,7 @@ class News(models.Model):
     schoolid = models.ForeignKey('School', db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
     title = models.CharField(db_column='Title', max_length=512, blank=True)  # Field name made lowercase.
     publishtime = models.DateTimeField(db_column='PublishTime', blank=True, null=True)  # Field name made lowercase.
-    content = models.CharField(db_column='Content', max_length=8000, blank=True)  # Field name made lowercase.
+    content = models.TextField(db_column='Content', max_length=8000, blank=True)  # Field name made lowercase.
     picture = models.CharField(db_column='Picture', max_length=1024, blank=True)  # Field name made lowercase.
     bigpic = models.CharField(db_column='BigPic', max_length=1024, blank=True)  # Field name made lowercase.
     show_home_page = models.IntegerField(db_column='ShowHomePage')  # Field name made lowercase.
