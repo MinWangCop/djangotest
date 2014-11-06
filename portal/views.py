@@ -27,13 +27,20 @@ def news_context(request,news_title):
     return render_include_to_response('news_context.html','news','学院新闻',{'new':news})
 
 def students_show(request):
-    students = Student.objects.order_by('-studentid')[:5]
+    students = Student.objects.order_by('-studentid')
+    page_list = Paginator(students, 5)
+    page_objects_list = []
+    for page_index in page_list.page_range:
+        page = page_list.page(page_index).object_list
+        page_objects_list.append(page)
+
     student_works = Studentworks.objects.order_by('-publishtime')
     top_works = student_works[:4] if len(student_works)>=4 else student_works[:len(student_works)]
     bottom_works = student_works[4:8] if len(student_works)>=8 \
         else student_works[4:len(student_works)] if len(student_works)>=4 else student_works
+
     return render_include_to_response('students_show.html','student','学员风采',
-                                      {'students':students,'top_works':top_works,'bottom_works':bottom_works,'defaultworkid':top_works[0].studentworksid})
+                                      {'student_page_objects':page_objects_list,'top_works':top_works,'bottom_works':bottom_works,'defaultworkid':top_works[0].studentworksid})
 
 def show_works(request,work_id):
     work = Studentworks.objects.get(studentworksid__exact = work_id)

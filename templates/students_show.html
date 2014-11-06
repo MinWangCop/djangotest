@@ -5,21 +5,31 @@
 	<div class="un_showTitle">
 		学员风采
 	</div>
-	<div class="un_perShow">
-		<ul class="clearfix" id="un_perShow">
-		{%for student in students%}
-			<li class="clearfix {%ifequal forloop.counter 1 %}hover{%endifequal%}">
-				<div class="img">
-					<img src="/static/images/person.jpg">
-					<p>{{student.fullname}}</p>
-				</div>
-				<div class="con {%ifnotequal forloop.counter 1 %}disnoe{%endifnotequal%}">
-					<div class="tit">{{student.title}}</div>
-					<p>“{{student.content}}”</p>
-				</div>
-			</li>
-		{%endfor%}
-		</ul>
+	<div class="un_perShow un_teacherShow">
+		<div class="un_personArrow">
+			<a  class="left" id="arrowL"></a>
+			<a  class="right" id="arrowR"></a>
+		</div>
+		<div class="un_teacherShowCon">
+			<div class="un_perShowW" id="un_perShowW">
+				{%for students in student_page_objects%}
+				<ul class="clearfix un_perShowUl">
+					{%for student in students%}
+					<li class="clearfix{%if forloop.last%} hover{%endif%}">
+						<div class="img">
+							<img src="{{student.pic}}" />
+							<p>{{student.fullname}}</p>
+						</div>
+						<div class="con disnoe">
+							<div class="tit">{{student.title}}</div>
+							<p>“{{student.content}}”</p>
+						</div>
+					</li>
+					{%endfor%}
+				</ul>
+				{%endfor%}
+			</div>
+		</div>
 	</div>
 	<div class="un_showTitle">
 		优秀作品
@@ -69,11 +79,14 @@
 
 </div>
 <script type="text/javascript">
-	$(function(){
-		$("#liwork{{defaultworkid}}").addClass("hover").siblings().removeClass("hover");
-		$("#work{{defaultworkid}}").show();
+	$("#un_perShow li").hover(function  (argument) {
+		$(this).addClass("hover").siblings().removeClass("hover").children(".con").hide();;
+		$(this).children(".con").show();
 	});
-	
+	//$("#un_workShowList02 li,#un_workShowList01 li").hover(function  (argument) {
+	//	$(this).addClass("hover").siblings().removeClass("hover");
+	//});
+
 	$("#un_perShow li").hover(function  (argument) {
 		$(this).addClass("hover").siblings().removeClass("hover").children(".con").hide();;
 		$(this).children(".con").show();
@@ -86,5 +99,36 @@
 		$(".un_workShow .un_workShowInfo").hide();
 		$("#work"+workid).show();
 	});
+
+	$(document).ready(function() {
+	 var un_perNum=$("#un_perShowW ul").size();
+
+	 var un_n=un_perNum-1;
+	 var un_perJ=0;
+	 $("#liwork{{defaultworkid}}").addClass("hover").siblings().removeClass("hover");
+	 $("#work{{defaultworkid}}").show();
+	 
+	 $("#un_perShowW").width(un_perNum*1039+"px");
+
+	 $("#arrowR").click(function  (argument) {
+	    
+			if(un_perJ==un_n){return false;}
+			 ++un_perJ;
+			$("#un_perShowW").animate({"left":-un_perJ*1039+"px"},500);	
+			if(un_perJ==un_n){
+				un_perJ=un_n;
+			}
+		 });
+
+		 $("#arrowL").click(function  (argument) {
+			if(un_perJ==0){return false;}
+			--un_perJ;  
+			$("#un_perShowW").animate({"left":-un_perJ*1039+"px"},500);
+		 });
+	});
+	$(".un_perShowUl>li").hover(function  (argument) {
+		$(this).addClass("hover").siblings().removeClass("hover").children(".con").hide();;
+		$(this).children(".con").show();
+	},function  (argument) {});
 </script>
 {%endblock%}
