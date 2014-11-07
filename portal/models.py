@@ -10,6 +10,12 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django import forms 
+import uuid
+
+def upload_path_handler(instance, filename):
+     filename=str(uuid.uuid1())+".jpg"
+     return "{id}/{file}".format(id=instance._meta.db_table.lower(), file=filename)
 
 class Course(models.Model):
     courseid = models.IntegerField(db_column='CourseId', primary_key=True)  # Field name made lowercase.
@@ -23,10 +29,11 @@ class Course(models.Model):
 class Friends(models.Model):
     friendsid = models.IntegerField(db_column='FriendsId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey('School', db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
-    logo = models.CharField(db_column='Logo', max_length=1024, blank=True)  # Field name made lowercase.
-    content = models.TextField(db_column='Content', max_length=1024, blank=True)  # Field name made lowercase.
+    logo = models.ImageField(db_column='Logo', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
+    content = models.CharField(db_column='Content', max_length=1024, blank=True)  # Field name made lowercase.
     siteurl = models.CharField(db_column='SiteUrl', max_length=1024, blank=True)  # Field name made lowercase.
     show_home_page = models.IntegerField(db_column='ShowHomePage')  # Field name made lowercase.
+    
 
     class Meta:
         managed = False
@@ -36,11 +43,11 @@ class Friends(models.Model):
 class News(models.Model):
     newsid = models.IntegerField(db_column='NewsId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey('School', db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
-    title = models.CharField(db_column='Title', max_length=512, blank=True)  # Field name made lowercase.
+    title = models.CharField(db_column='Title', max_length=255, blank=True,unique=True)  # Field name made lowercase.
     publishtime = models.DateTimeField(db_column='PublishTime', blank=True, null=True)  # Field name made lowercase.
-    content = models.TextField(db_column='Content', max_length=8000, blank=True)  # Field name made lowercase.
-    picture = models.CharField(db_column='Picture', max_length=1024, blank=True)  # Field name made lowercase.
-    bigpic = models.CharField(db_column='BigPic', max_length=1024, blank=True)  # Field name made lowercase.
+    content = models.CharField(db_column='Content', max_length=8000, blank=True)  # Field name made lowercase.
+    picture = models.ImageField(db_column='Picture', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
+    bigpic = models.ImageField(db_column='BigPic', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
     show_home_page = models.IntegerField(db_column='ShowHomePage')  # Field name made lowercase.
 
     class Meta:
@@ -79,7 +86,7 @@ class School(models.Model):
 class Student(models.Model):
     studentid = models.IntegerField(db_column='StudentId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey(School, db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
-    pic = models.CharField(db_column='Pic', max_length=1024, blank=True)  # Field name made lowercase.
+    pic = models.ImageField(db_column='Pic', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
     content = models.CharField(db_column='Content', max_length=1024, blank=True)  # Field name made lowercase.
     title = models.CharField(db_column='title', max_length=512, blank=True)  # Field name made lowercase.
     fullname = models.CharField(db_column='fullname', max_length=512, blank=True)  # Field name made lowercase.
@@ -97,8 +104,8 @@ class Studentworks(models.Model):
     publishtime = models.DateTimeField(blank=True, null=True)
     studentname = models.CharField(db_column='studentName', max_length=1024, blank=True)  # Field name made lowercase.
     worksname = models.CharField(db_column='worksName', max_length=1024, blank=True)  # Field name made lowercase.
-    smallimg = models.CharField(db_column='smallimg', max_length=1024, blank=True)  # Field name made lowercase.
-    originimg = models.CharField(db_column='originimg', max_length=1024, blank=True)  # Field name made lowercase.
+    smallimg = models.ImageField(db_column='smallimg', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
+    originimg = models.ImageField(db_column='originimg', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
     description = models.CharField(db_column='description', max_length=4000, blank=True)  # Field name made lowercase.
 
     class Meta:
@@ -109,7 +116,7 @@ class Studentworks(models.Model):
 class Teacher(models.Model):
     teacherid = models.IntegerField(db_column='TeacherId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey(School, db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
-    photo = models.CharField(db_column='photo', max_length=1024, blank=True)  # Field name made lowercase.
+    photo = models.ImageField(db_column='photo', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
     content = models.CharField(db_column='Content', max_length=2048, blank=True)  # Field name made lowercase.
     title = models.CharField(db_column='title', max_length=1024, blank=True)  # Field name made lowercase.
     fullname = models.CharField(db_column='fullname', max_length=1024, blank=True)  # Field name made lowercase.

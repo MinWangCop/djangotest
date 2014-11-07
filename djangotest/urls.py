@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
+from django.conf.urls.static import static
 from django.contrib import admin
+from django.conf import settings
 
 urlpatterns = patterns('',
     # Examples:
@@ -17,4 +19,4 @@ urlpatterns = patterns('',
     url(r'^registerpost/$','portal.registerviews.register_post'),
     url(r'^school/$', 'portal.views.school'),
     url(r'^code/$','portal.registerviews.validate_code'),
-)   
+)+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)  
