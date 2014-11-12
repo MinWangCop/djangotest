@@ -1,5 +1,5 @@
 from django.contrib import admin
-from portal.models import News, Friends,Student,Studentworks,Teacher,Register
+from portal.models import News,Friends,Student,Studentworks,Teacher,Register
 from django import forms
 from portal.forms import NewsForm
 
