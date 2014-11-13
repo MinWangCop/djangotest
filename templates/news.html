@@ -5,7 +5,7 @@
 	<ul class="un_xwdt clearfix">
 		{%for new in news%}
 		<li>
-			<div class="newImg"><a href=""><img src="{{new.picture}}"></a></div>
+			<div class="newImg"><a href=""><img src="{{MEDIA_URL}}{{new.picture}}"></a></div>
 			<div class="newCon">
 				<div class="tit">
 					<h3>{{new.title}}</h3>

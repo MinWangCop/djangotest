@@ -84,7 +84,7 @@ Unity官方学院作为整个Unity教育行业的标杆，将为参加Unity官�
 					{%for teacher in page_objects%}
 					<li class="clearfix {%if forloop.first%} hover {%endif%}">
 						<div class="img">
-							<img src="{{teacher.photo}}">
+							<img src="{{MEDIA_PREFIX}}{{teacher.photo}}">
 							<p>{{teacher.fullname}}</p>
 						</div>
 						<div class="con {%if not forloop.first%} disnoe {%endif%}">

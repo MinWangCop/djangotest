@@ -12,10 +12,15 @@ from __future__ import unicode_literals
 from django.db import models
 from django import forms 
 import uuid
+import os
+from PIL import Image
+from djangotest.settings import MEDIA_ROOT,MEDIA_URL
+from django.db.models.fields.files import ImageFieldFile
 
 def upload_path_handler(instance, filename):
-     filename=str(uuid.uuid1())+".jpg"
-     return "{id}/{file}".format(id=instance._meta.db_table.lower(), file=filename)
+     filename=str(uuid.uuid1()).replace('-','')+".jpg"
+     #id=instance._meta.db_table.lower(), 
+     return "{file}".format(file=filename)
 
 class Course(models.Model):
     courseid = models.IntegerField(db_column='CourseId', primary_key=True)  # Field name made lowercase.
@@ -41,6 +46,7 @@ class Friends(models.Model):
 
 
 class News(models.Model):
+    imageroot=MEDIA_URL
     newsid = models.IntegerField(db_column='NewsId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey('School', db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
     title = models.CharField(db_column='Title', max_length=255, blank=True,unique=True)  # Field name made lowercase.
@@ -53,7 +59,8 @@ class News(models.Model):
     class Meta:
         managed = False
         db_table = 'News'
-
+    
+    
 
 class Register(models.Model):
     registerid = models.IntegerField(db_column='RegisterId', primary_key=True)  # Field name made lowercase.
@@ -239,3 +246,35 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+#class Media(models.Model):
+#    title = models.CharField(max_length = 120)
+#    image = models.ImageField(upload_to = MEDIA_ROOT)
+#    thumb = models.ImageField(upload_to = MEDIA_ROOT, blank = True)
+#    date = models.DateTimeField(auto_now_add = True)
+#    news = models.ForeignKey(News)
+#
+#    class Meta:
+#        verbose_name_plural = ('Media')
+#
+#    def save(self):
+#        base, ext = os.path.splitext(os.path.basename(self.image.path))
+#        thumb_pixbuf = make_thumb(os.path.join(MEDIA_ROOT, self.image.name))
+#        relate_thumb_path = os.path.join(THUMB_ROOT, base + '.thumb' + ext)
+#        thumb_path = os.path.join(MEDIA_ROOT, relate_thumb_path)
+#        thumb_pixbuf.save(thumb_path)
+#        self.thumb = ImageFieldFile(self, self.thumb, relate_thumb_path)
+#        super(Media, self).save()
+#
+#    def __unicode__(self):
+#        return _('%s, uploaded at %s') % (self.title, self.date.strftime('%T %h %d, %Y'))        
+        
+def make_thumb(path, size = 480):
+    pixbuf = Image.open(path)
+    width, height = pixbuf.size
+
+    if width > size:
+        delta = width / size
+        height = int(height / delta)
+        pixbuf.thumbnail((size, height), Image.ANTIALIAS)
+
+        return pixbuf
