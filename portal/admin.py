@@ -10,11 +10,13 @@ from portal.forms import NewsForm
 class FriendsAdmin(admin.ModelAdmin):
     list_display=('logo','siteurl','content')  
     fields = (('logo', 'siteurl'), 'content','show_home_page')
-    
+    list_filter=('show_home_page',)    
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
     list_display=('title','publishtime','picture','bigpic')  
+    list_filter=('show_home_page',)
+    search_fields = ('title',)
     fields = ('title','publishtime','picture','bigpic','content','show_home_page')
     form = NewsForm
 #    inlines = [MediaAdmin,]
