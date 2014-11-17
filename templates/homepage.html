@@ -8,7 +8,7 @@
 			<div class="un_hotImageN">
 				<ul id="imgY">
 					{%for hot_new in hot_news %}
-					<li><a href="/news/{{hot_new.title}}" alt="{{hot_new.title}}"><img src="{{MEDIA_PREFIX}}{{hot_new.bigpic}}" alt="{{hot_new.title}}"></a></li>
+					<li><a href="/news/{{hot_new.title}}" alt="{{hot_new.title}}"><img src="{{MEDIA_URL}}{{hot_new.bigpic}}" alt="{{hot_new.title}}"></a></li>
 					{%endfor%}
 				</ul>
 			</div>

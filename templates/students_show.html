@@ -37,13 +37,13 @@
 	<div class="un_workShow" >
 		<ul class="list clearfix " id="un_workShowList01">
 			{% for work in top_works %}
-			<li id="liwork{{work.studentworksid}}" workid="{{work.studentworksid}}"><a href="javascript:;"><img src="{{MEDIA_PREFIX}}{{work.smallimg}}"></a><i></i></li>
+			<li id="liwork{{work.studentworksid}}" workid="{{work.studentworksid}}"><a href="javascript:;"><img src="{{MEDIA_URL}}{{work.smallimg}}"></a><i></i></li>
 			{% endfor %}
 		</ul>
 		{% for work in top_works %}
 		<div class="un_workShowInfo clearfix" style="display:none" id="work{{work.studentworksid}}" name="work{{work.studentworksid}}">
 			<div class="img">
-					<img src="{{MEDIA_PREFIX}}{{work.originimg}}" style="width:589px;height:292px">
+					<img src="{{MEDIA_URL}}{{work.originimg}}" style="width:589px;height:292px">
 				</div>
 				<div class="con">
 					<div class="tit">
@@ -58,7 +58,7 @@
 		{% for work in bottom_works %}
 		<div class="un_workShowInfo clearfix" style="display:none" id="work{{work.studentworksid}}" name="work{{work.studentworksid}}">
 			<div class="img">
-					<img src="{{MEDIA_PREFIX}}{{work.originimg}}" style="width:589px;height:292px">
+					<img src="{{MEDIA_URL}}{{work.originimg}}" style="width:589px;height:292px">
 				</div>
 				<div class="con">
 					<div class="tit">
@@ -72,7 +72,7 @@
 		{% endfor %}
 		<ul class="list clearfix " id="un_workShowList02">
 			{% for work in bottom_works %}
-			<li id="liwork{{work.studentworksid}}" workid="{{work.studentworksid}}"><a href="javascript:;"><img src="{{MEDIA_PREFIX}}{{work.smallimg}}"></a><i></i></li>
+			<li id="liwork{{work.studentworksid}}" workid="{{work.studentworksid}}"><a href="javascript:;"><img src="{{MEDIA_URL}}{{work.smallimg}}"></a><i></i></li>
 			{% endfor %}
 		</ul>
 	</div>
