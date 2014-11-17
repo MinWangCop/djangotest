@@ -14,7 +14,7 @@ class NewsForm(forms.ModelForm):
         print data
         count=News.objects.filter(show_home_page__exact='1').count()
         print count
-        raise forms.ValidationError("show_home_page er")
+#        raise forms.ValidationError("show_home_page er")
 
         # Always return the cleaned data, whether you have changed it or
         # not.
