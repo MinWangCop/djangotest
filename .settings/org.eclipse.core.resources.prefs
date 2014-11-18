@@ -1,6 +1,7 @@
-#Wed Nov 12 15:51:04 CST 2014
+#Mon Nov 17 19:21:46 CST 2014
 eclipse.preferences.version=1
 encoding//portal/admin.py=utf-8
+encoding//portal/forms.py=UTF-8
 encoding//portal/registerviews.py=UTF-8
 encoding//portal/validatecode.py=UTF-8
 encoding//portal/views.py=UTF-8
