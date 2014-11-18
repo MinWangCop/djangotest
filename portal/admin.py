@@ -18,6 +18,7 @@ class NewsAdmin(admin.ModelAdmin):
     list_filter=('show_home_page',)
     search_fields = ('title',)
     fields = ('title','publishtime','picture','bigpic','content','show_home_page')
+    # radio_fields={'show_home_page':admin.VERTICAL}
     form = NewsForm
 #    inlines = [MediaAdmin,]
 #    
