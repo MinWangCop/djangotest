@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
@@ -29,108 +30,130 @@ class Course(models.Model):
     class Meta:
         managed = False
         db_table = 'Course'
+        verbose_name='课程'
 
 
 class Friends(models.Model):
     friendsid = models.IntegerField(db_column='FriendsId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey('School', db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
-    logo = models.ImageField(db_column='Logo', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
-    content = models.CharField(db_column='Content', max_length=1024, blank=True)  # Field name made lowercase.
-    siteurl = models.CharField(db_column='SiteUrl', max_length=1024, blank=True)  # Field name made lowercase.
-    show_home_page = models.IntegerField(db_column='ShowHomePage')  # Field name made lowercase.
+    logo = models.ImageField(db_column='Logo', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='图片')  # Field name made lowercase.
+    content = models.CharField(db_column='Content', max_length=1024, blank=True,verbose_name='内容')  # Field name made lowercase.
+    siteurl = models.CharField(db_column='SiteUrl', max_length=1024, blank=True,verbose_name='url路径')  # Field name made lowercase.
+    show_home_page = models.IntegerField(db_column='ShowHomePage',verbose_name='在首页显示',choices=(('1', '是'),('0', '否')))  # Field name made lowercase.
     
 
     class Meta:
         managed = False
         db_table = 'Friends'
+        verbose_name='合作机构'
+    def __unicode__(self):
+        return self.content
 
 
 class News(models.Model):
     imageroot=MEDIA_URL
     newsid = models.IntegerField(db_column='NewsId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey('School', db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
-    title = models.CharField(db_column='Title', max_length=255, blank=True,unique=True)  # Field name made lowercase.
-    publishtime = models.DateTimeField(db_column='PublishTime', blank=True, null=True)  # Field name made lowercase.
-    content = models.CharField(db_column='Content', max_length=8000, blank=True)  # Field name made lowercase.
-    picture = models.ImageField(db_column='Picture', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
-    bigpic = models.ImageField(db_column='BigPic', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
-    show_home_page = models.IntegerField(db_column='ShowHomePage')  # Field name made lowercase.
+    title = models.CharField(db_column='Title', max_length=255, blank=True,unique=True,verbose_name='标题')  # Field name made lowercase.
+    publishtime = models.DateTimeField(db_column='PublishTime', blank=True, null=True,verbose_name='发布时间')  # Field name made lowercase.
+    content = models.CharField(db_column='Content', max_length=8000, blank=True,verbose_name='内容')  # Field name made lowercase.
+    picture = models.ImageField(db_column='Picture', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='小图')  # Field name made lowercase.
+    bigpic = models.ImageField(db_column='BigPic', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='大图')  # Field name made lowercase.
+    show_home_page = models.IntegerField(db_column='ShowHomePage',verbose_name='在首页显示',choices=(('1', '是'),('0', '否')))  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'News'
+        verbose_name='新闻'
+
+    def __unicode__(self):
+        return self.title
     
     
 
 class Register(models.Model):
     registerid = models.IntegerField(db_column='RegisterId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey('School', db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
-    fullname = models.CharField(db_column='FullName', max_length=512, blank=True)  # Field name made lowercase.
-    qualifications = models.CharField(db_column='Qualifications', max_length=512, blank=True)  # Field name made lowercase.
-    city = models.CharField(db_column='City', max_length=512, blank=True)  # Field name made lowercase.
-    address1 = models.CharField(db_column='Address1', max_length=1024, blank=True)  # Field name made lowercase.
-    address2 = models.CharField(db_column='Address2', max_length=1024, blank=True)  # Field name made lowercase.
-    mobile = models.CharField(db_column='Mobile', max_length=512, blank=True)  # Field name made lowercase.
-    qqnumber = models.CharField(db_column='QQNumber', max_length=512, blank=True)  # Field name made lowercase.
-    currentstate = models.CharField(db_column='CurrentState', max_length=512, blank=True)  # Field name made lowercase.
-    extended = models.CharField(db_column='Extended', max_length=2048, blank=True)  # Field name made lowercase.
-    regtime = models.DateTimeField(db_column='RegTime', blank=True, null=True)  # Field name made lowercase.
+    fullname = models.CharField(db_column='FullName', max_length=512, blank=True,verbose_name='姓名')  # Field name made lowercase.
+    qualifications = models.CharField(db_column='Qualifications', max_length=512, blank=True,verbose_name='最高学历')  # Field name made lowercase.
+    city = models.CharField(db_column='City', max_length=512, blank=True,verbose_name='城市')  # Field name made lowercase.
+    address1 = models.CharField(db_column='Address1', max_length=1024, blank=True,verbose_name='通讯地址1')  # Field name made lowercase.
+    address2 = models.CharField(db_column='Address2', max_length=1024, blank=True,verbose_name='通讯地址2')  # Field name made lowercase.
+    mobile = models.CharField(db_column='Mobile', max_length=512, blank=True,verbose_name='手机')  # Field name made lowercase.
+    qqnumber = models.CharField(db_column='QQNumber', max_length=512, blank=True,verbose_name='QQ')  # Field name made lowercase.
+    currentstate = models.CharField(db_column='CurrentState', max_length=512, blank=True,verbose_name='状况')  # Field name made lowercase.
+    extended = models.CharField(db_column='Extended', max_length=2048, blank=True,verbose_name='补充内容')  # Field name made lowercase.
+    regtime = models.DateTimeField(db_column='RegTime', blank=True, null=True,verbose_name='报名时间')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'Register'
+        verbose_name='报名信息'
 
 
 class School(models.Model):
     schoolid = models.IntegerField(db_column='SchoolId', primary_key=True)  # Field name made lowercase.
-    content = models.CharField(db_column='Content', max_length=2048, blank=True)  # Field name made lowercase.
+    content = models.CharField(db_column='Content', max_length=2048, blank=True,verbose_name='内容')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'School'
-
+        verbose_name='学院'
+    def __unicode__(self):
+        return self.content
 
 class Student(models.Model):
     studentid = models.IntegerField(db_column='StudentId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey(School, db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
-    pic = models.ImageField(db_column='Pic', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
-    content = models.CharField(db_column='Content', max_length=1024, blank=True)  # Field name made lowercase.
-    title = models.CharField(db_column='title', max_length=512, blank=True)  # Field name made lowercase.
-    fullname = models.CharField(db_column='fullname', max_length=512, blank=True)  # Field name made lowercase.
+    pic = models.ImageField(db_column='Pic', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='头像')  # Field name made lowercase.
+    content = models.CharField(db_column='Content', max_length=1024, blank=True,verbose_name='内容')  # Field name made lowercase.
+    title = models.CharField(db_column='title', max_length=512, blank=True,verbose_name='标题')  # Field name made lowercase.
+    fullname = models.CharField(db_column='fullname', max_length=512, blank=True,verbose_name='名字')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'Student'
+        verbose_name='学员'
+    def __unicode__(self):
+        return self.title
 
 
 class Studentworks(models.Model):
     studentworksid = models.IntegerField(db_column='StudentworksId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey(School, db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
     studentid = models.ForeignKey(Student, db_column='StudentId', blank=True, null=True)  # Field name made lowercase.
-    worksurl = models.CharField(db_column='worksUrl', max_length=1024, blank=True)  # Field name made lowercase.
-    publishtime = models.DateTimeField(blank=True, null=True)
-    studentname = models.CharField(db_column='studentName', max_length=1024, blank=True)  # Field name made lowercase.
-    worksname = models.CharField(db_column='worksName', max_length=1024, blank=True)  # Field name made lowercase.
-    smallimg = models.ImageField(db_column='smallimg', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
-    originimg = models.ImageField(db_column='originimg', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
-    description = models.CharField(db_column='description', max_length=4000, blank=True)  # Field name made lowercase.
+    worksurl = models.CharField(db_column='worksUrl', max_length=1024, blank=True,verbose_name='url')  # Field name made lowercase.
+    publishtime = models.DateTimeField(blank=True, null=True,verbose_name='时间')
+    studentname = models.CharField(db_column='studentName', max_length=1024, blank=True,verbose_name='学生名字')  # Field name made lowercase.
+    worksname = models.CharField(db_column='worksName', max_length=1024, blank=True,verbose_name='作品名称')  # Field name made lowercase.
+    smallimg = models.ImageField(db_column='smallimg', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='小图')  # Field name made lowercase.
+    originimg = models.ImageField(db_column='originimg', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='原图')  # Field name made lowercase.
+    description = models.CharField(db_column='description', max_length=4000, blank=True,verbose_name='描述')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'StudentWorks'
+        verbose_name='学生作品'
+
+    def __unicode__(self):
+        return self.worksname
 
 
 class Teacher(models.Model):
     teacherid = models.IntegerField(db_column='TeacherId', primary_key=True)  # Field name made lowercase.
     schoolid = models.ForeignKey(School, db_column='SchoolId', blank=True, null=True)  # Field name made lowercase.
-    photo = models.ImageField(db_column='photo', max_length=1024, blank=True,upload_to=upload_path_handler)  # Field name made lowercase.
-    content = models.CharField(db_column='Content', max_length=2048, blank=True)  # Field name made lowercase.
-    title = models.CharField(db_column='title', max_length=1024, blank=True)  # Field name made lowercase.
-    fullname = models.CharField(db_column='fullname', max_length=1024, blank=True)  # Field name made lowercase.
+    photo = models.ImageField(db_column='photo', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='头像')  # Field name made lowercase.
+    content = models.CharField(db_column='Content', max_length=2048, blank=True,verbose_name='内容')  # Field name made lowercase.
+    title = models.CharField(db_column='title', max_length=1024, blank=True,verbose_name='标题')  # Field name made lowercase.
+    fullname = models.CharField(db_column='fullname', max_length=1024, blank=True,verbose_name='名字')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'Teacher'
+        verbose_name='教师'
+
+    def __unicode__(self):
+        return self.title
 
 
 class AuthGroup(models.Model):

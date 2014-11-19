@@ -18,20 +18,21 @@ class NewsAdmin(admin.ModelAdmin):
     list_filter=('show_home_page',)
     search_fields = ('title',)
     fields = ('title','publishtime','picture','bigpic','content','show_home_page')
+    # radio_fields={'show_home_page':admin.VERTICAL}
     form = NewsForm
 #    inlines = [MediaAdmin,]
 #    
-    def save_model(self,request,obj,form,change):
-        print request
-        print 3333333333333
-        print form
-        print 44444444444
-        print change
-        print 555554
-        print self
-        return
-        raise ValidationError("show_home_page er")
-#        obj.save()
+#    def save_model(self,request,obj,form,change):
+#        print request
+#        print 3333333333333
+#        print form
+#        print 44444444444
+#        print change
+#        print 555554
+#        print self
+#        return request
+#        raise ValidationError("show_home_page er")
+##        obj.save()
 #        
 #        large_image_base, large_image_ext = os.path.splitext(os.path.basename(obj.picture.path))
 #        large_thumb_pixbuf = make_thumb(os.path.join(MEDIA_ROOT, obj.picture.name))
