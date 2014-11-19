@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 {%block title%} Unity学院学员风采 {%endblock%}
 {%block content%}
 <div class="un_content">
@@ -17,7 +17,7 @@
 					{%for student in students%}
 					<li class="clearfix{%if forloop.last%} hover{%endif%}">
 						<div class="img">
-							<img src="{{student.pic}}" />
+							<img src="{{MEDIA_URL}}{{student.pic}}" />
 							<p>{{student.fullname}}</p>
 						</div>
 						<div class="con disnoe">
