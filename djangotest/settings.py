@@ -64,11 +64,11 @@ WSGI_APPLICATION = 'djangotest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST':'192.168.111.102',
-        'NAME': 'djangotest',
+        'HOST':'unity3306.mysql.rds.aliyuncs.com',
+        'NAME': 'unityportal',
         'PORT':'3306',
-        'USER':'root',
-        'PASSWORD':'win@123'
+        'USER':'unityportal',
+        'PASSWORD':'clever4321858'
     }
 }
 
