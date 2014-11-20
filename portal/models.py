@@ -31,6 +31,7 @@ class Course(models.Model):
         managed = False
         db_table = 'Course'
         verbose_name='课程'
+        verbose_name_plural='课程'
 
 
 class Friends(models.Model):
@@ -39,15 +40,24 @@ class Friends(models.Model):
     logo = models.ImageField(db_column='Logo', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='图片')  # Field name made lowercase.
     content = models.CharField(db_column='Content', max_length=1024, blank=True,verbose_name='内容')  # Field name made lowercase.
     siteurl = models.CharField(db_column='SiteUrl', max_length=1024, blank=True,verbose_name='url路径')  # Field name made lowercase.
-    show_home_page = models.IntegerField(db_column='ShowHomePage',verbose_name='在首页显示',choices=(('1', '是'),('0', '否')))  # Field name made lowercase.
+    show_home_page = models.IntegerField(db_column='ShowHomePage',verbose_name='在首页显示',choices=((1, '是'),(0, '否')))  # Field name made lowercase.
     
 
     class Meta:
         managed = False
         db_table = 'Friends'
         verbose_name='合作机构'
+        verbose_name_plural='合作机构'
+
     def __unicode__(self):
         return self.content
+    # def save(self, *args, **kwargs):
+    #     #messages.error( 'I am wrong')
+    #     return
+    #     if self.content == "Yoko Ono's blog":
+    #         return # Yoko shall never have her own blog!
+    #     else:
+    #         super(Friends, self).save(*args, **kwargs) # Call the "real" save() method.
 
 
 class News(models.Model):
@@ -59,12 +69,13 @@ class News(models.Model):
     content = models.CharField(db_column='Content', max_length=8000, blank=True,verbose_name='内容')  # Field name made lowercase.
     picture = models.ImageField(db_column='Picture', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='小图')  # Field name made lowercase.
     bigpic = models.ImageField(db_column='BigPic', max_length=1024, blank=True,upload_to=upload_path_handler,verbose_name='大图')  # Field name made lowercase.
-    show_home_page = models.IntegerField(db_column='ShowHomePage',verbose_name='在首页显示',choices=(('1', '是'),('0', '否')))  # Field name made lowercase.
+    show_home_page = models.IntegerField(db_column='ShowHomePage',verbose_name='在首页显示',choices=((1, '是'),(0, '否')))  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'News'
         verbose_name='新闻'
+        verbose_name_plural='新闻'
 
     def __unicode__(self):
         return self.title
@@ -89,6 +100,7 @@ class Register(models.Model):
         managed = False
         db_table = 'Register'
         verbose_name='报名信息'
+        verbose_name_plural='报名信息'
 
 
 class School(models.Model):
@@ -99,6 +111,8 @@ class School(models.Model):
         managed = False
         db_table = 'School'
         verbose_name='学院'
+        verbose_name_plural='学院'
+
     def __unicode__(self):
         return self.content
 
@@ -114,6 +128,8 @@ class Student(models.Model):
         managed = False
         db_table = 'Student'
         verbose_name='学员'
+        verbose_name_plural='学员'
+
     def __unicode__(self):
         return self.title
 
@@ -134,6 +150,7 @@ class Studentworks(models.Model):
         managed = False
         db_table = 'StudentWorks'
         verbose_name='学生作品'
+        verbose_name_plural='学生作品'
 
     def __unicode__(self):
         return self.worksname
@@ -151,6 +168,7 @@ class Teacher(models.Model):
         managed = False
         db_table = 'Teacher'
         verbose_name='教师'
+        verbose_name_plural='教师'
 
     def __unicode__(self):
         return self.title

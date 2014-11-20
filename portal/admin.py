@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*- 
 from __future__ import division
-from django.contrib import admin
+from django.contrib import admin,messages
+from django.core.urlresolvers import reverse
 from portal.models import News,Friends,Student,Studentworks,Teacher,Register
 from django import forms
 from portal.forms import NewsForm
+from django.http import HttpResponseRedirect
+
 # Register your models here.
 
 @admin.register(Friends)
@@ -21,8 +24,22 @@ class NewsAdmin(admin.ModelAdmin):
     # radio_fields={'show_home_page':admin.VERTICAL}
     form = NewsForm
 #    inlines = [MediaAdmin,]
-#    
-#    def save_model(self,request,obj,form,change):
+#
+    # def save_form(self, request, form, change):
+
+        # return HttpResponseRedirect(reverse(''))
+
+    # def save_model(self,request,obj,form,change):
+    #     return
+        # print request._messages
+
+        # messages.info(request, 'Three credits remain in your account.')
+        # messages.error(request,'111122')
+        # messages.warning(request,'22222')
+        # mobj=messages.get_messages(request)
+        # request
+         # messages.error(request, 'I am wrong')
+         # return
 #        print request
 #        print 3333333333333
 #        print form
